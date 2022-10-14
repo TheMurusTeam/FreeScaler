@@ -91,7 +91,7 @@ class DropView: NSView {
             
             let url = URL(fileURLWithPath: path)
             if url.isJPEG || url.isPNG {
-                print("importing single image from \(path)")
+                print("importing single image from file at \(path)")
                 importedNewFile(path: path)
                 return true
             } else if url.isFolder {
