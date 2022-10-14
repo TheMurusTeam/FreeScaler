@@ -14,7 +14,7 @@ import Cocoa
 
 extension AppDelegate {
     
-    
+    /*
     // MARK: SELECT BATCH FOLDER
     
     @IBAction func openDir(_ sender: Any) {
@@ -53,7 +53,7 @@ extension AppDelegate {
         } catch {}
         return ([],[])
     }
-    
+    */
     
     
 }
