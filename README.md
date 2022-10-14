@@ -24,5 +24,9 @@ All components run natively on both Apple Silicon and Intel Macs.
 SYSTEM REQUIREMENTS<br>
 FreeScaler requires a Mac with at least 8GB RAM running macOS Big Sur 11.3 or newer<br>
 Supported GPUs: Apple Silicon, AMD, nVidia<br>
-Intel GPU are not supported.
+Intel GPU are not supported.<br>
+
+AVAILABLE ON THE MAC APP STORE<br>
+https://apps.apple.com/us/app/freescaler/id6443796196
+
 
