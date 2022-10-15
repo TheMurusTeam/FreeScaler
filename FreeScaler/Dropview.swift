@@ -37,8 +37,6 @@ extension URL {
 
 class DropView: NSView {
 
-    var filePath: String?
-    let expectedExt = ["png","jpeg","jpg"]
     var mycolor : CGColor = CGColor.clear
 
     required init?(coder: NSCoder) {
@@ -94,9 +92,6 @@ class DropView: NSView {
                 print("importing single image from file at \(path)")
                 importedNewFile(path: path)
                 return true
-            } else if url.isFolder {
-                print("cannot import folder in single image mode")
-                return false
             } else {
                 print("cannot import, object is not a PNG or JPEG image")
                 return false
@@ -105,6 +100,7 @@ class DropView: NSView {
         } else if (NSApplication.shared.delegate as! AppDelegate).freeScalerMode == 1 {
             
             // BATCH FOLDER
+            
             let url = URL(fileURLWithPath: path)
             if url.isFolder {
                 print("importing images from folder at \(path)")
@@ -121,30 +117,3 @@ class DropView: NSView {
 
 
 
-
-
-/*
-if checkExtension(sender) == true {
-    self.mycolor = self.layer!.backgroundColor!
-    return .copy
-} else {
-    return NSDragOperation()
-}
-*/
-
-
-/*
-fileprivate func checkExtension(_ drag: NSDraggingInfo) -> Bool {
-    guard let board = drag.draggingPasteboard.propertyList(forType: NSPasteboard.PasteboardType(rawValue: "NSFilenamesPboardType")) as? NSArray,
-          let path = board[0] as? String
-    else { return false }
-
-    let suffix = URL(fileURLWithPath: path).pathExtension
-    for ext in self.expectedExt {
-        if ext.lowercased() == suffix {
-            return true
-        }
-    }
-    return false
-}
-*/

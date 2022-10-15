@@ -29,6 +29,15 @@ func freescalerFullVersion() -> String {
 
 // called when a new image has been imported
 func importedNewFile(path:String) {
+    if !(URL(fileURLWithPath: path).isPNG || URL(fileURLWithPath: path).isJPEG) {
+        // unsupported image format
+        let alert = NSAlert()
+        alert.messageText = "Unable to import this file"
+        alert.informativeText = "File format not supported. You can only upscale PNG or JPEG images."
+        alert.runModal()
+        return
+    }
+    // import PNG/JPEG
     if let image = NSImage(contentsOf: URL(fileURLWithPath: path)) {
         // CHECK IMAGE SIZE
         if image.size.width > 3840 || image.size.height > 2160 {
@@ -84,11 +93,9 @@ extension AppDelegate {
         myFiledialog.canChooseDirectories = false
         myFiledialog.title = "Import Image"
         myFiledialog.runModal()
-        let chosenfile = myFiledialog.url
-        if (chosenfile != nil) {
-            let path = chosenfile!.relativePath
-            if path.hasSuffix(".png") || path.hasSuffix(".jpg") || path.hasSuffix(".jpeg") {
-                importedNewFile(path: path)
+        if let chosenfile = myFiledialog.url {
+            if !(chosenfile.isPNG || chosenfile.isJPEG) {
+                importedNewFile(path: chosenfile.relativePath)
             } else {
                 // unsupported image size
                 let alert = NSAlert()

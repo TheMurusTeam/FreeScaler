@@ -14,6 +14,10 @@ extension AppDelegate {
     
     
     func startFreeScale() {
+        // service provider
+        NSApplication.shared.servicesProvider = ServiceProvider()
+        NSUpdateDynamicServices()
+        // prefs
         self.readPreferences()
         // collapse split view's right view
         self.splitview.setPosition(self.window.frame.size.width, ofDividerAt: 0)

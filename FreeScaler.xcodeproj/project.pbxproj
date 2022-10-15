@@ -10,6 +10,7 @@
 		3F2AA4D128F89F47008DB84B /* LICENSE.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 3F2AA4D028F89F47008DB84B /* LICENSE.rtf */; };
 		3F35482428F9FD8D00F284D1 /* Batch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F35482328F9FD8D00F284D1 /* Batch.swift */; };
 		3F3F726A28F88A06006BC03A /* Start FreeScaler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3F726928F88A06006BC03A /* Start FreeScaler.swift */; };
+		3F81151B28FB0EA300C03DF9 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F81151A28FB0EA300C03DF9 /* ServiceProvider.swift */; };
 		3FA7E28728F58D7C00DAE403 /* Freescaler.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FA7E28628F58D7C00DAE403 /* Freescaler.png */; };
 		3FA9883E28F71577006A968A /* animeup.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FA9883C28F71577006A968A /* animeup.png */; };
 		3FA9883F28F71577006A968A /* animelow.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FA9883D28F71577006A968A /* animelow.png */; };
@@ -35,6 +36,7 @@
 		3F35482328F9FD8D00F284D1 /* Batch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Batch.swift; sourceTree = "<group>"; };
 		3F3F726928F88A06006BC03A /* Start FreeScaler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Start FreeScaler.swift"; sourceTree = "<group>"; };
 		3F47645F28F5A1F100112A79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		3F81151A28FB0EA300C03DF9 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
 		3FA7E28628F58D7C00DAE403 /* Freescaler.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Freescaler.png; sourceTree = "<group>"; };
 		3FA9883C28F71577006A968A /* animeup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = animeup.png; sourceTree = "<group>"; };
 		3FA9883D28F71577006A968A /* animelow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = animelow.png; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				3FC37D5628F4AFFF001CF0B7 /* Assets.xcassets */,
 				3FC37D5828F4AFFF001CF0B7 /* MainMenu.xib */,
 				3FC37D5B28F4AFFF001CF0B7 /* FreeScaler.entitlements */,
+				3F81151A28FB0EA300C03DF9 /* ServiceProvider.swift */,
 			);
 			path = FreeScaler;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 				3FC37D6B28F4B802001CF0B7 /* Dropview.swift in Sources */,
 				3F35482428F9FD8D00F284D1 /* Batch.swift in Sources */,
 				3FA9884328F73419006A968A /* Preferences.swift in Sources */,
+				3F81151B28FB0EA300C03DF9 /* ServiceProvider.swift in Sources */,
 				3FC37D5528F4AFFE001CF0B7 /* AppDelegate.swift in Sources */,
 				3FC37D6D28F4C68D001CF0B7 /* Operations.swift in Sources */,
 				3F3F726A28F88A06006BC03A /* Start FreeScaler.swift in Sources */,
