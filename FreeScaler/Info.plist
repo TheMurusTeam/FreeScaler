@@ -15,7 +15,9 @@
 			<key>NSRequiredContext</key>
 			<dict>
 				<key>NSApplicationIdentifier</key>
-				<string>com.apple.finder</string>
+				<array>
+					<string>com.apple.finder</string>
+				</array>
 				<key>NSTextContent</key>
 				<string>FilePath</string>
 			</dict>

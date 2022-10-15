@@ -94,7 +94,7 @@ extension AppDelegate {
         myFiledialog.title = "Import Image"
         myFiledialog.runModal()
         if let chosenfile = myFiledialog.url {
-            if !(chosenfile.isPNG || chosenfile.isJPEG) {
+            if (chosenfile.isPNG || chosenfile.isJPEG) {
                 importedNewFile(path: chosenfile.relativePath)
             } else {
                 // unsupported image size
