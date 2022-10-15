@@ -373,6 +373,34 @@
                                 <view key="view" id="nr1-at-c4O">
                                     <rect key="frame" x="0.0" y="0.0" width="780" height="443"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <scrollView wantsLayer="YES" fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jiY-hT-FwB">
+                                            <rect key="frame" x="33" y="200" width="250" height="160"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <clipView key="contentView" id="pxK-gV-yvH">
+                                                <rect key="frame" x="1" y="1" width="248" height="158"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <collectionView id="2UI-kA-Whz">
+                                                        <rect key="frame" x="0.0" y="0.0" width="248" height="158"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                                        <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="w9Y-Qh-v6z">
+                                                            <size key="itemSize" width="50" height="50"/>
+                                                        </collectionViewFlowLayout>
+                                                        <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </collectionView>
+                                                </subviews>
+                                            </clipView>
+                                            <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="rVn-17-bW4">
+                                                <rect key="frame" x="1" y="144" width="233" height="15"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </scroller>
+                                            <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="oN9-Gv-w1x">
+                                                <rect key="frame" x="234" y="1" width="15" height="143"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </scroller>
+                                        </scrollView>
+                                    </subviews>
                                 </view>
                             </tabViewItem>
                         </tabViewItems>

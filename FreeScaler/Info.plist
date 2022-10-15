@@ -21,12 +21,8 @@
 			</dict>
 			<key>NSSendFileTypes</key>
 			<array>
-				<string>public.item</string>
-			</array>
-			<key>NSSendTypes</key>
-			<array>
-				<string>NSFilenamesPboardType</string>
-				<string>public.plain-text</string>
+				<string>public.png</string>
+				<string>public.jpeg</string>
 			</array>
 		</dict>
 	</array>

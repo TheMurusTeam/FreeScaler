@@ -8,6 +8,8 @@
 import Foundation
 import Cocoa
 
+// /System/Library/CoreServices/pbs -flush
+
 class ServiceProvider: NSObject {
     @objc func serviceUpscale(_ pasteboard: NSPasteboard, userData: String?, error: AutoreleasingUnsafeMutablePointer<NSString>) {
         if let fileURLs = pasteboard.readObjects(forClasses: [NSURL.self], options: nil) as? [URL] {
