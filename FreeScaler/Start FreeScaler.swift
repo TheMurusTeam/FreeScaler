@@ -39,6 +39,11 @@ extension AppDelegate {
         self.upscaleBtn.isEnabled = false
         self.saveBtn.isEnabled = false
         self.clearBtn.isEnabled = false
+        self.tb_upscale.isEnabled = false
+        self.tb_save.isEnabled = false
+        self.tb_clear.isEnabled = false
+        self.tb_stop.isEnabled = false
+        self.stopBtn.isEnabled = false
         // draw drop label view border
         self.droplabelview.canDrawSubviewsIntoLayer = true
         self.droplabelview.layer?.cornerRadius = 16.0

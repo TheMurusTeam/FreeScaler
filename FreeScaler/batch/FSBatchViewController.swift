@@ -13,6 +13,7 @@ let temporaryoutputBatchpath = NSTemporaryDirectory() + "batch/"
 
 class FSImage : NSObject {
     @objc dynamic var path: String
+    @objc dynamic var outputpath : String? = nil
     @objc dynamic var thumbnail: NSImage
     @objc dynamic var sizeString: String
     @objc dynamic var isUpscaling: Bool
@@ -33,7 +34,7 @@ class FSImage : NSObject {
 
 
 
-class FSBatchViewController: NSViewController {
+class FSBatchViewController: NSViewController,NSSharingServicePickerDelegate {
     
     @objc dynamic var images = [FSImage]()
     @IBOutlet var imagesArrayController: NSArrayController!
@@ -87,6 +88,8 @@ class FSBatchViewController: NSViewController {
     // MARK: IMPORT IMAGES FROM FOLDER
     
     func importedNewFolder(selectedURL:URL) {
+        self.images = [FSImage]()
+        self.imagesArrayController.content = nil
         // switch to batch view
         freeScalerMode = 1
         (NSApplication.shared.delegate as? AppDelegate)?.mainTabView.selectTabViewItem(at: 1)
@@ -150,6 +153,19 @@ class FSBatchViewController: NSViewController {
     
     @IBAction func deleteImage(_ sender: NSButton) {
         if let pathToDelete = sender.toolTip {
+            // delete output file if needed
+            for img in self.images {
+                if pathToDelete == img.path {
+                    do {
+                        if let outpath = img.outputpath {
+                            if FileManager.default.fileExists(atPath: outpath) {
+                                try FileManager.default.removeItem(at: URL(fileURLWithPath: outpath))
+                            }
+                        }
+                    } catch {}
+                }
+            }
+            // update images array
             self.images = self.images.filter {$0.path != pathToDelete}
         }
         if self.images.isEmpty {
@@ -164,14 +180,21 @@ class FSBatchViewController: NSViewController {
     
     
     
-    // MARK: CLICK UPSCALE
+    // MARK: - CLICK UPSCALE
     
     
-    let batchqueue = DispatchQueue(label: "bacthqueue")
+    var upscaleStopped = false
+    
+    func stopUpscale() {
+        self.upscaleStopped = true
+        stopUpscalerProcess()
+        
+    }
     
     // called from toolbar button
     func runBatchUpscale() {
         self.isUpscaling = true
+        self.upscaleStopped = false
         
         if let appdelegate = (NSApplication.shared.delegate as? AppDelegate) {
             // toolbar buttons
@@ -187,6 +210,16 @@ class FSBatchViewController: NSViewController {
             appdelegate.popupmodel.isEnabled = false
             appdelegate.tb_popupscale.isEnabled = false
             appdelegate.tb_popupmodel.isEnabled = false
+            appdelegate.tb_stop.isEnabled = true
+            appdelegate.stopBtn.isEnabled = true
+            // reset models
+            for img in self.images {
+                img.isUpscaling = false
+                img.upscaled = false
+                img.upscaledImage = NSImage()
+                img.progr = 0
+                img.outputpath = nil
+            }
         }
         //
         self.upscaleBatch(index: 0)
@@ -330,16 +363,17 @@ class FSBatchViewController: NSViewController {
                 // TASK FINISHED
                 
                 img.isUpscaling = false
-                img.upscaled = true
                 
                 if let upscaledImage = NSImage(contentsOf: URL(fileURLWithPath: temporaryoutputBatchpath + outputFileName)) {
                     print("storing upscaled image into model")
                     img.upscaledImage = upscaledImage
+                    img.upscaled = true
+                    img.outputpath = temporaryoutputBatchpath + outputFileName
                 }
                 
                 // BATCH LOOP
                 
-                if index < (self.images.count - 1) {
+                if index < (self.images.count - 1) && self.upscaleStopped == false {
                     // upscale next image
                     self.upscaleBatch(index: index + 1)
                 } else {
@@ -354,7 +388,7 @@ class FSBatchViewController: NSViewController {
     
     
     
-    // MARK: DISPLAY RESULT
+    // MARK: - DISPLAY RESULT
     
     func displayBatchResult() {
         self.isUpscaling = false
@@ -372,6 +406,14 @@ class FSBatchViewController: NSViewController {
             appdelegate.popupmodel.isEnabled = true
             appdelegate.tb_popupscale.isEnabled = true
             appdelegate.tb_popupmodel.isEnabled = true
+            appdelegate.tb_stop.isEnabled = false
+            appdelegate.stopBtn.isEnabled = false
+        }
+        for img in self.images {
+            if img.isUpscaling {
+                img.isUpscaling = false
+                img.upscaled = false
+            }
         }
         // show tmp dir
         //NSWorkspace.shared.activateFileViewerSelecting([URL(fileURLWithPath: temporaryoutputBatchpath)])
@@ -391,11 +433,73 @@ class FSBatchViewController: NSViewController {
                                                                upscaledImage: image.upscaledImage)
                 (winCtrl["preview"] as? FSPreviewWindowController)?.window?.makeKeyAndOrderFront(nil)
             }
-            
-            
         }
     }
     
+    
+    // MARK: SAVE/SHARE
+    
+    // draw share menu
+    func sharingServicePicker(_ sharingServicePicker: NSSharingServicePicker, sharingServicesForItems items: [Any], proposedSharingServices proposedServices: [NSSharingService]) -> [NSSharingService] {
+        guard let image = NSImage(named: "Freescaler") else {
+            return proposedServices
+        }
+        var share = proposedServices
+        let customService = NSSharingService(title: "Save As...", image: image, alternateImage: image, handler: {
+            if let _ = items.first as? NSImage {
+                // action
+                self.displaySavePanel()
+            }
+        })
+        share.insert(customService, at: 0)
+        return share
+    }
+    
+    var singleImageOutputPath = String()
+    var singleImagePath = String()
+    
+    @IBAction func clickShareImage(_ sender: NSButton) {
+        if let path = sender.toolTip {
+            self.singleImagePath = path
+            let images = self.images.filter({ $0.path == path })
+            if images.count == 1 {
+                let image = images[0]
+                if let outpath = image.outputpath {
+                    self.singleImageOutputPath = outpath
+                    let items = [image.upscaledImage]
+                    let sharingPicker = NSSharingServicePicker(items: items)
+                    sharingPicker.delegate = self
+                    sharingPicker.show(relativeTo: NSZeroRect, of: sender, preferredEdge: .minY)
+                }
+            }
+        }
+    }
+    
+    
+    // save panel for single batch image
+    func displaySavePanel() {
+        let panel = NSSavePanel()
+        // suggested file name
+        let ipath = self.singleImagePath
+        let url = NSURL(fileURLWithPath: ipath)
+        if let filename = url.lastPathComponent {
+            let filenoext = (filename as NSString).deletingPathExtension
+            let proposedfilename = filenoext + "-UPSCALED" + ".\(fileformat)"
+            panel.nameFieldStringValue = proposedfilename
+        }
+        
+        panel.title = "Save image"
+        panel.prompt = "Save Image"
+        if panel.runModal().rawValue == 1 {
+            if let path = panel.url?.path {
+                do {
+                    try FileManager.default.copyItem(atPath: self.singleImageOutputPath, toPath: path)
+                } catch {}
+            }
+        }
+        self.singleImagePath = String()
+        self.singleImageOutputPath = String()
+    }
     
     
 }

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21225"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -47,8 +48,8 @@
                         <rect key="frame" x="1" y="144" width="233" height="15"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
-                    <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="Cvc-ny-9gt">
-                        <rect key="frame" x="234" y="1" width="15" height="143"/>
+                    <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="Cvc-ny-9gt">
+                        <rect key="frame" x="593" y="0.0" width="16" height="344"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                 </scrollView>
@@ -100,7 +101,7 @@
                 <constraint firstItem="bfo-Pk-Uat" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="rK1-aA-0DZ"/>
                 <constraint firstItem="bfo-Pk-Uat" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="x1b-mD-C97"/>
             </constraints>
-            <point key="canvasLocation" x="138" y="315"/>
+            <point key="canvasLocation" x="137.5" y="314.5"/>
         </customView>
         <collectionViewItem id="5YJ-6P-U44">
             <connections>
@@ -120,28 +121,12 @@
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TTi-VE-9fS">
-                        <rect key="frame" x="17" y="17" width="241" height="162"/>
-                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="Oaz-eh-eYF"/>
+                        <rect key="frame" x="20" y="20" width="235" height="156"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="Oaz-eh-eYF"/>
                         <connections>
                             <binding destination="5YJ-6P-U44" name="value" keyPath="representedObject.thumbnail" id="aKX-iA-miG"/>
                         </connections>
                     </imageView>
-                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oqD-Bb-oid">
-                        <rect key="frame" x="243" y="164" width="26" height="26"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="20" id="ESY-Pn-fhb"/>
-                            <constraint firstAttribute="height" constant="20" id="y82-PA-jQX"/>
-                        </constraints>
-                        <buttonCell key="cell" type="round" bezelStyle="circular" image="NSRemoveTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="CLA-CL-pbl">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="deleteImage:" target="-2" id="ET0-xH-oQj"/>
-                            <binding destination="-2" name="hidden" keyPath="isUpscaling" id="gY1-3g-J9X"/>
-                            <binding destination="5YJ-6P-U44" name="toolTip" keyPath="representedObject.path" id="T69-D6-Och"/>
-                        </connections>
-                    </button>
                     <textField verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3f5-Ct-HCC">
                         <rect key="frame" x="92" y="10" width="92" height="22"/>
                         <constraints>
@@ -193,27 +178,108 @@
                             </binding>
                         </connections>
                     </box>
-                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jaA-Ld-LqK">
-                        <rect key="frame" x="85" y="30" width="106" height="32"/>
+                    <box fixedFrame="YES" boxType="custom" borderType="none" cornerRadius="4" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="wep-Bz-Gnu">
+                        <rect key="frame" x="229" y="150" width="42" height="41"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Preview" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="huk-GN-VaA">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
+                        <view key="contentView" id="kB7-4X-zLw">
+                            <rect key="frame" x="0.0" y="0.0" width="42" height="41"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9yo-XW-ufn">
+                                    <rect key="frame" x="2" y="4" width="34" height="31"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="overlaps" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="lh7-Si-JAT">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                        <imageReference key="image" image="minus.circle.fill" catalog="system" symbolScale="large" renderingMode="template"/>
+                                    </buttonCell>
+                                    <color key="contentTintColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
+                                    <symbolConfiguration key="symbolConfiguration" weight="bold"/>
+                                    <connections>
+                                        <action selector="deleteImage:" target="-2" id="7Yr-0D-cGq"/>
+                                        <binding destination="-2" name="hidden" keyPath="isUpscaling" id="C2i-TS-4yG"/>
+                                        <binding destination="5YJ-6P-U44" name="toolTip" keyPath="representedObject.path" id="2FL-Cb-sO2"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </view>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                <color key="value" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <integer key="value" value="18"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                         <connections>
-                            <action selector="clickPreview:" target="-2" id="QZv-4S-QHG"/>
-                            <binding destination="5YJ-6P-U44" name="hidden" keyPath="representedObject.upscaled" id="1JD-Oa-Xgl">
+                            <binding destination="-2" name="hidden" keyPath="isUpscaling" id="Qcu-rg-OI8"/>
+                        </connections>
+                    </box>
+                    <box fixedFrame="YES" boxType="custom" borderType="none" cornerRadius="4" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="hiS-TP-4ZI">
+                        <rect key="frame" x="229" y="6" width="42" height="73"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <view key="contentView" id="MRt-xb-rcb">
+                            <rect key="frame" x="0.0" y="0.0" width="42" height="73"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hs2-vU-pf2">
+                                    <rect key="frame" x="2" y="39" width="34" height="31"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <buttonCell key="cell" type="square" title="-" bezelStyle="shadowlessSquare" imagePosition="overlaps" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="o73-T3-uUj">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                        <imageReference key="image" image="magnifyingglass.circle.fill" catalog="system" symbolScale="large" renderingMode="template"/>
+                                    </buttonCell>
+                                    <symbolConfiguration key="symbolConfiguration" weight="bold"/>
+                                    <connections>
+                                        <action selector="clickPreview:" target="-2" id="nZ2-gS-TeI"/>
+                                        <binding destination="5YJ-6P-U44" name="hidden" keyPath="representedObject.upscaled" id="VbW-DT-EoB">
+                                            <dictionary key="options">
+                                                <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                            </dictionary>
+                                        </binding>
+                                        <binding destination="5YJ-6P-U44" name="toolTip" keyPath="representedObject.path" id="nfT-Af-dmV"/>
+                                    </connections>
+                                </button>
+                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lgt-9g-ABX">
+                                    <rect key="frame" x="2" y="6.5" width="34" height="31"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <buttonCell key="cell" type="square" title="-" bezelStyle="shadowlessSquare" imagePosition="overlaps" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="Q4M-KU-acS">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                        <imageReference key="image" image="square.and.arrow.up.circle.fill" catalog="system" symbolScale="large" renderingMode="template"/>
+                                    </buttonCell>
+                                    <symbolConfiguration key="symbolConfiguration" weight="bold"/>
+                                    <connections>
+                                        <action selector="clickShareImage:" target="-2" id="kOF-av-8E2"/>
+                                        <binding destination="5YJ-6P-U44" name="hidden" keyPath="representedObject.upscaled" id="yua-89-gQF">
+                                            <dictionary key="options">
+                                                <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                            </dictionary>
+                                        </binding>
+                                        <binding destination="5YJ-6P-U44" name="toolTip" keyPath="representedObject.path" id="Mmb-dz-CgU"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </view>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                <color key="value" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <integer key="value" value="18"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <binding destination="5YJ-6P-U44" name="hidden" keyPath="representedObject.upscaled" id="L7H-wY-p5c">
                                 <dictionary key="options">
                                     <string key="NSValueTransformerName">NSNegateBoolean</string>
                                 </dictionary>
                             </binding>
-                            <binding destination="5YJ-6P-U44" name="toolTip" keyPath="representedObject.path" id="h1f-ma-MIE"/>
                         </connections>
-                    </button>
+                    </box>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="oqD-Bb-oid" firstAttribute="top" secondItem="FYj-MK-Mae" secondAttribute="top" constant="9" id="2cr-8U-5SP"/>
-                    <constraint firstAttribute="trailing" secondItem="oqD-Bb-oid" secondAttribute="trailing" constant="9" id="8qB-lg-Cvh"/>
                     <constraint firstAttribute="bottom" secondItem="TTi-VE-9fS" secondAttribute="bottom" constant="20" symbolic="YES" id="FJ0-61-IHM"/>
                     <constraint firstAttribute="trailing" secondItem="TTi-VE-9fS" secondAttribute="trailing" constant="20" symbolic="YES" id="PFq-ZY-ZK8"/>
                     <constraint firstItem="TTi-VE-9fS" firstAttribute="top" secondItem="FYj-MK-Mae" secondAttribute="top" constant="20" symbolic="YES" id="Qjx-8n-iOg"/>
@@ -233,7 +299,9 @@
         </box>
     </objects>
     <resources>
-        <image name="NSRemoveTemplate" width="14" height="4"/>
+        <image name="magnifyingglass.circle.fill" catalog="system" width="20" height="20"/>
+        <image name="minus.circle.fill" catalog="system" width="20" height="20"/>
+        <image name="square.and.arrow.up.circle.fill" catalog="system" width="20" height="20"/>
         <namedColor name="AccentColor">
             <color red="0.31400001049041748" green="0.32899999618530273" blue="0.99199998378753662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

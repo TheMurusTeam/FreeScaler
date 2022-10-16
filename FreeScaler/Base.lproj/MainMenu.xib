@@ -41,14 +41,16 @@
                 <outlet property="rightview" destination="yu0-dn-BZT" id="ELa-EA-Kez"/>
                 <outlet property="saveBtn" destination="MIx-sb-FVO" id="lkv-HN-GNT"/>
                 <outlet property="splitview" destination="ylw-6N-FWe" id="JOF-yV-VcO"/>
+                <outlet property="stopBtn" destination="Ugm-Zy-IBT" id="hdb-HO-vGS"/>
                 <outlet property="tb_clear" destination="2lS-Al-IJu" id="4PK-Qt-BHT"/>
                 <outlet property="tb_import" destination="Pox-IC-Bkd" id="c8s-qp-nF3"/>
                 <outlet property="tb_popupmodel" destination="iyA-ht-rNx" id="na9-2v-g9y"/>
                 <outlet property="tb_popupscale" destination="rVO-rb-2Y1" id="dOg-Vu-94Q"/>
                 <outlet property="tb_save" destination="SgH-1i-UN2" id="slU-IT-9Es"/>
+                <outlet property="tb_stop" destination="ghy-d9-Ebn" id="z3U-1n-GE2"/>
                 <outlet property="tb_upscale" destination="vbd-jO-bpD" id="bJD-fa-kip"/>
                 <outlet property="tipsSuppressionBtn" destination="Mf4-e4-naM" id="gMd-I9-xzR"/>
-                <outlet property="ttaBtn" destination="aJs-PH-eca" id="d8z-LJ-nrP"/>
+                <outlet property="ttaBtn" destination="52Q-cT-REA" id="03D-6N-abQ"/>
                 <outlet property="upscaleBtn" destination="Oaj-ak-ySN" id="knB-sp-Hda"/>
                 <outlet property="versionstring" destination="9Xi-hX-548" id="UO2-eh-0LO"/>
                 <outlet property="view_batch" destination="nr1-at-c4O" id="pX7-Bq-rll"/>
@@ -201,31 +203,31 @@
         <window title="FreeScaler" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" frameAutosaveName="mainwindow" animationBehavior="default" toolbarStyle="unified" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="708" y="523" width="774" height="439"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1055"/>
-            <value key="minSize" type="size" width="774" height="439"/>
+            <rect key="contentRect" x="332" y="394" width="797" height="439"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1512" height="944"/>
+            <value key="minSize" type="size" width="797" height="439"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="774" height="439"/>
+                <rect key="frame" x="0.0" y="0.0" width="797" height="439"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <tabView drawsBackground="NO" type="noTabsNoBorder" translatesAutoresizingMaskIntoConstraints="NO" id="FoJ-Gc-YYU" userLabel="tab view">
-                        <rect key="frame" x="-3" y="-2" width="780" height="443"/>
+                        <rect key="frame" x="-3" y="-2" width="803" height="443"/>
                         <font key="font" metaFont="system"/>
                         <tabViewItems>
                             <tabViewItem label="Tab" identifier="" id="8Fl-Nq-Hh8" userLabel="single image">
                                 <view key="view" id="czo-Ap-xYr">
-                                    <rect key="frame" x="0.0" y="0.0" width="780" height="443"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="803" height="443"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <customView translatesAutoresizingMaskIntoConstraints="NO" id="gHO-Nb-Gfo" userLabel="placeholderview">
-                                            <rect key="frame" x="389" y="221" width="2" height="2"/>
+                                            <rect key="frame" x="401" y="221" width="2" height="2"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="2" id="GlI-A9-d21"/>
                                                 <constraint firstAttribute="height" constant="2" id="ed5-Yb-5Rh"/>
                                             </constraints>
                                         </customView>
                                         <customView translatesAutoresizingMaskIntoConstraints="NO" id="uP2-aA-Lgb" userLabel="droplabel View">
-                                            <rect key="frame" x="324" y="164" width="133" height="115"/>
+                                            <rect key="frame" x="335" y="164" width="133" height="115"/>
                                             <subviews>
                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DjL-OB-pzm">
                                                     <rect key="frame" x="4" y="59" width="125" height="50"/>
@@ -248,18 +250,18 @@
                                             </constraints>
                                         </customView>
                                         <splitView arrangesAllSubviews="NO" dividerStyle="paneSplitter" vertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ylw-6N-FWe">
-                                            <rect key="frame" x="0.0" y="-5" width="780" height="448"/>
+                                            <rect key="frame" x="0.0" y="-5" width="803" height="448"/>
                                             <subviews>
                                                 <customView id="8Lo-qr-uVC" userLabel="sinistra">
-                                                    <rect key="frame" x="0.0" y="0.0" width="383" height="448"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="394" height="448"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="75" verticalCompressionResistancePriority="75" translatesAutoresizingMaskIntoConstraints="NO" id="q3d-Ou-PrW">
-                                                            <rect key="frame" x="0.0" y="5" width="779" height="443"/>
+                                                            <rect key="frame" x="0.0" y="5" width="802" height="443"/>
                                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="y6X-iV-W7n"/>
                                                         </imageView>
                                                         <customView translatesAutoresizingMaskIntoConstraints="NO" id="s7v-pV-B2G" customClass="DropView" customModule="FreeScaler" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="383" height="448"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="394" height="448"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
                                                                     <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -275,15 +277,15 @@
                                                     </constraints>
                                                 </customView>
                                                 <customView id="yu0-dn-BZT" userLabel="destra">
-                                                    <rect key="frame" x="393" y="0.0" width="387" height="448"/>
+                                                    <rect key="frame" x="404" y="0.0" width="399" height="448"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="75" verticalCompressionResistancePriority="75" translatesAutoresizingMaskIntoConstraints="NO" id="NkW-3b-yuG">
-                                                            <rect key="frame" x="-393" y="5" width="779" height="443"/>
+                                                            <rect key="frame" x="-404" y="5" width="802" height="443"/>
                                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="e9C-uZ-LtV"/>
                                                         </imageView>
                                                         <customView translatesAutoresizingMaskIntoConstraints="NO" id="CoZ-jw-tb5" customClass="DropView" customModule="FreeScaler" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="387" height="448"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="399" height="448"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
                                                                     <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -308,14 +310,14 @@
                                             </connections>
                                         </splitView>
                                         <customView hidden="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Obw-OI-HE8" userLabel="progr View">
-                                            <rect key="frame" x="320" y="161" width="140" height="122"/>
+                                            <rect key="frame" x="332" y="161" width="140" height="122"/>
                                             <subviews>
                                                 <progressIndicator fixedFrame="YES" maxValue="10000" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="YU1-0f-UlU">
-                                                    <rect key="frame" x="54" y="67" width="32" height="32"/>
+                                                    <rect key="frame" x="54" y="55" width="32" height="32"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 </progressIndicator>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sbN-cT-5YB">
-                                                    <rect key="frame" x="4" y="46" width="131" height="16"/>
+                                                    <rect key="frame" x="4" y="34" width="131" height="16"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Please wait..." id="5PL-rb-E28">
                                                         <font key="font" metaFont="system"/>
@@ -323,19 +325,8 @@
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
-                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dul-PL-dQh">
-                                                    <rect key="frame" x="21" y="9" width="101" height="19"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <buttonCell key="cell" type="roundRect" title="Stop" bezelStyle="roundedRect" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="vA5-p9-z3H">
-                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                        <font key="font" metaFont="cellTitle"/>
-                                                    </buttonCell>
-                                                    <connections>
-                                                        <action selector="clickStopBtn:" target="Voe-Tx-rLC" id="srN-W3-hUo"/>
-                                                    </connections>
-                                                </button>
                                                 <progressIndicator fixedFrame="YES" maxValue="100" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="mJL-f6-Kor">
-                                                    <rect key="frame" x="54" y="67" width="32" height="32"/>
+                                                    <rect key="frame" x="54" y="55" width="32" height="32"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 </progressIndicator>
                                             </subviews>
@@ -478,6 +469,20 @@
                             </connections>
                         </button>
                     </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="00809220-7514-4DC0-8C54-BA92D111571D" label="Stop" paletteLabel="Stop" image="stop.fill" catalog="system" bordered="YES" sizingBehavior="auto" autovalidates="NO" id="ghy-d9-Ebn">
+                        <nil key="toolTip"/>
+                        <button key="view" toolTip="IMPORT IMAGE FROM FILE" verticalHuggingPriority="750" id="Ugm-Zy-IBT">
+                            <rect key="frame" x="3" y="14" width="26" height="23"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="stop.fill" catalog="system" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="JFv-rX-BZs">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="clickStopBtn:" target="Voe-Tx-rLC" id="6Uu-Ph-iW0"/>
+                            </connections>
+                        </button>
+                    </toolbarItem>
                     <toolbarItem implicitItemIdentifier="BA54D706-3AC5-4051-88D5-8D461BD04057" label="Scale" paletteLabel="Scale" title="X4" sizingBehavior="auto" autovalidates="NO" id="rVO-rb-2Y1">
                         <nil key="toolTip"/>
                         <popUpButton key="view" toolTip="SCALE" verticalHuggingPriority="750" id="Wip-my-yfg">
@@ -496,52 +501,46 @@
                             </popUpButtonCell>
                         </popUpButton>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="5A5A7904-0128-4871-A271-16BB3047A352" label="Reduce Artefacts" paletteLabel="Reduce Artefacts" tag="-1" title="Box" sizingBehavior="auto" id="FHU-EE-CL9">
+                    <toolbarItem implicitItemIdentifier="9BDCE19C-D8E5-409B-9E39-9581E113AB20" label="Reduce Artefacts" paletteLabel="Reduce Artefacts" tag="-1" sizingBehavior="auto" id="489-8r-7Rq">
                         <nil key="toolTip"/>
-                        <box key="view" boxType="custom" borderType="none" cornerRadius="4" title="Box" titlePosition="noTitle" id="c00-vy-rmy">
+                        <customView key="view" id="Q7A-0w-BDF">
                             <rect key="frame" x="4" y="14" width="90" height="26"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <view key="contentView" id="w9S-yp-CEb">
-                                <rect key="frame" x="0.0" y="0.0" width="90" height="26"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <subviews>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aJs-PH-eca">
-                                        <rect key="frame" x="0.0" y="4" width="88" height="18"/>
-                                        <buttonCell key="cell" type="check" title="TTA Mode" bezelStyle="regularSquare" imagePosition="left" inset="2" id="ZDI-FM-LUZ">
-                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="aJs-PH-eca" firstAttribute="centerY" secondItem="w9S-yp-CEb" secondAttribute="centerY" id="01a-GL-Iec"/>
-                                    <constraint firstItem="aJs-PH-eca" firstAttribute="centerX" secondItem="w9S-yp-CEb" secondAttribute="centerX" id="1QQ-8x-ZsS"/>
-                                </constraints>
-                            </view>
-                        </box>
+                            <subviews>
+                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="52Q-cT-REA">
+                                    <rect key="frame" x="3" y="4" width="88" height="18"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <buttonCell key="cell" type="check" title="TTA Mode" bezelStyle="regularSquare" imagePosition="left" inset="2" id="Twu-nL-Fnh">
+                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                </button>
+                            </subviews>
+                        </customView>
                     </toolbarItem>
                 </allowedToolbarItems>
                 <defaultToolbarItems>
                     <toolbarItem reference="iyA-ht-rNx"/>
                     <toolbarItem reference="rVO-rb-2Y1"/>
-                    <toolbarItem reference="FHU-EE-CL9"/>
+                    <toolbarItem reference="489-8r-7Rq"/>
                     <toolbarItem reference="vrA-Rz-Cpi"/>
                     <toolbarItem reference="Pox-IC-Bkd"/>
                     <toolbarItem reference="SgH-1i-UN2"/>
                     <toolbarItem reference="2lS-Al-IJu"/>
+                    <toolbarItem reference="ghy-d9-Ebn"/>
                     <toolbarItem reference="vbd-jO-bpD"/>
                 </defaultToolbarItems>
             </toolbar>
             <connections>
                 <outlet property="delegate" destination="Voe-Tx-rLC" id="Gva-nP-MKj"/>
             </connections>
-            <point key="canvasLocation" x="266" y="884.5"/>
+            <point key="canvasLocation" x="277.5" y="884.5"/>
         </window>
         <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="kIH-rt-df2" userLabel="About Window">
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="140" y="176" width="257" height="259"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1055"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1512" height="944"/>
             <view key="contentView" id="AWW-hg-Epw">
                 <rect key="frame" x="0.0" y="0.0" width="257" height="259"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -600,7 +599,7 @@ github.com/TheMurusTeam/FreeScaler</string>
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="140" y="176" width="567" height="422"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1055"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1512" height="944"/>
             <view key="contentView" id="b2B-rS-GyN">
                 <rect key="frame" x="0.0" y="0.0" width="567" height="422"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -1288,7 +1287,7 @@ DQ
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="730" y="673" width="358" height="133"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1055"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1512" height="944"/>
             <view key="contentView" id="2aJ-mb-M3j">
                 <rect key="frame" x="0.0" y="0.0" width="358" height="133"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -1384,6 +1383,7 @@ DQ
         <image name="clear" catalog="system" width="15" height="14"/>
         <image name="doc" catalog="system" width="14" height="16"/>
         <image name="shot1" width="861" height="774"/>
+        <image name="stop.fill" catalog="system" width="14" height="13"/>
         <namedColor name="AccentColor">
             <color red="0.31400001049041748" green="0.32899999618530273" blue="0.99199998378753662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

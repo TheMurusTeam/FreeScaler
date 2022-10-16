@@ -69,6 +69,8 @@ func importedNewFile(path:String) {
                 // hide share btn
                 appdelegate.saveBtn.isEnabled = false
                 appdelegate.tb_save.isEnabled = false
+                appdelegate.tb_stop.isEnabled = false
+                appdelegate.stopBtn.isEnabled = false
                 // input image size
                 appdelegate.originalsize = image.size
                 // input image path
@@ -157,6 +159,8 @@ extension AppDelegate {
             self.tb_clear.isEnabled = false
             self.tb_save.isEnabled = false
             self.tb_import.isEnabled = false
+            self.tb_stop.isEnabled = true
+            self.stopBtn.isEnabled = true
             // progress view
             self.progress.doubleValue = 0
             self.progress.isHidden = true
@@ -215,7 +219,13 @@ extension AppDelegate {
     
     // abort upscale task
     @IBAction func clickStopBtn(_ sender: Any) {
-        stopUpscalerProcess()
+        if freeScalerMode == 0 {
+            // single image
+            stopUpscalerProcess()
+        } else if freeScalerMode == 1 {
+            // batch
+            (viewCtrl["batch"] as? FSBatchViewController)?.stopUpscale()
+        }
         // hide progress view
         self.progress.isHidden = true
         self.iprogress.stopAnimation(nil)
@@ -230,6 +240,8 @@ extension AppDelegate {
         self.tb_import.isEnabled = true
         self.tb_save.isEnabled = false
         self.tb_clear.isEnabled = true
+        self.tb_stop.isEnabled = false
+        self.stopBtn.isEnabled = false
     }
     
     
@@ -252,6 +264,8 @@ extension AppDelegate {
             self.tb_import.isEnabled = true
             self.tb_save.isEnabled = true
             self.tb_clear.isEnabled = true
+            self.tb_stop.isEnabled = false
+            self.stopBtn.isEnabled = false
             self.previewup.image = image
             // hide progress view
             self.progress.isHidden = true
@@ -290,6 +304,8 @@ extension AppDelegate {
         self.tb_import.isEnabled = true
         self.tb_popupscale.isEnabled = true
         self.tb_popupmodel.isEnabled = true
+        self.tb_stop.isEnabled = false
+        self.stopBtn.isEnabled = false
         self.droplabelview.isHidden = false
         self.preview.image = nil
         // batch view
@@ -325,7 +341,7 @@ extension AppDelegate {
             return proposedServices
         }
         var share = proposedServices
-        let customService = NSSharingService(title: "Save Image As...", image: image, alternateImage: image, handler: {
+        let customService = NSSharingService(title: "Save As...", image: image, alternateImage: image, handler: {
             if let _ = items.first as? NSImage {
                 // action
                 if freeScalerMode == 0 {
@@ -385,7 +401,7 @@ extension AppDelegate {
         panel.canCreateDirectories = true
         panel.canChooseDirectories = true
         panel.canChooseFiles = false
-        panel.title = "Save images"
+        panel.title = "Save upscaled images to folder"
         panel.prompt = "Save Images"
         if panel.runModal().rawValue == 1 {
             if let path = panel.url?.path {

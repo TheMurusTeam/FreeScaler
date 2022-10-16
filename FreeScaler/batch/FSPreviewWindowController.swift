@@ -19,6 +19,7 @@ class FSPreviewWindowController: NSWindowController, NSWindowDelegate, NSSplitVi
     @IBOutlet weak var img_right: NSImageView!
     
     
+    
     convenience init(windowNibName:String, inputPath: String, upscaledImage: NSImage) {
         self.init(windowNibName:windowNibName)
         self.inputPath = inputPath
@@ -36,6 +37,7 @@ class FSPreviewWindowController: NSWindowController, NSWindowDelegate, NSSplitVi
         let filename = URL(fileURLWithPath: self.inputPath).lastPathComponent
         let filenoext = (filename as NSString).deletingPathExtension
         self.window?.title = filenoext + ".\(fileformat)"
+        
         
         
     }
