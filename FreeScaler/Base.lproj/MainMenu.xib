@@ -227,26 +227,26 @@
                                             </constraints>
                                         </customView>
                                         <customView translatesAutoresizingMaskIntoConstraints="NO" id="uP2-aA-Lgb" userLabel="droplabel View">
-                                            <rect key="frame" x="335" y="164" width="133" height="115"/>
+                                            <rect key="frame" x="315" y="154" width="173" height="155"/>
                                             <subviews>
                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DjL-OB-pzm">
-                                                    <rect key="frame" x="4" y="59" width="125" height="50"/>
+                                                    <rect key="frame" x="4" y="91" width="165" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <textFieldCell key="cell" alignment="center" title="Drop image here" id="XB7-fm-FOa">
+                                                    <textFieldCell key="cell" alignment="center" title="Drop image or folder here" id="XB7-fm-FOa">
                                                         <font key="font" metaFont="systemBlack" size="20"/>
                                                         <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
-                                                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0yU-JK-mbh">
-                                                    <rect key="frame" x="35" y="-2" width="62" height="63"/>
+                                                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0yU-JK-mbh" userLabel="drophereimg">
+                                                    <rect key="frame" x="54" y="16" width="62.5" height="63"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="arrow.uturn.down.square.fill" catalog="system" id="TfI-0h-4Ep"/>
+                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="square.and.arrow.down" catalog="system" id="TfI-0h-4Ep"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="115" id="VJg-d5-88F"/>
-                                                <constraint firstAttribute="width" constant="133" id="dNF-Gf-3es"/>
+                                                <constraint firstAttribute="height" constant="155" id="5gg-bQ-GhL"/>
+                                                <constraint firstAttribute="width" constant="173" id="OeI-Nk-a2L"/>
                                             </constraints>
                                         </customView>
                                         <splitView arrangesAllSubviews="NO" dividerStyle="paneSplitter" vertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ylw-6N-FWe">
@@ -344,17 +344,17 @@
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="ylw-6N-FWe" secondAttribute="trailing" id="3fZ-7a-CBa"/>
                                         <constraint firstItem="Obw-OI-HE8" firstAttribute="centerY" secondItem="czo-Ap-xYr" secondAttribute="centerY" id="50e-V5-wRn"/>
+                                        <constraint firstItem="uP2-aA-Lgb" firstAttribute="centerX" secondItem="czo-Ap-xYr" secondAttribute="centerX" id="67F-hY-Dbc"/>
                                         <constraint firstItem="gHO-Nb-Gfo" firstAttribute="centerX" secondItem="czo-Ap-xYr" secondAttribute="centerX" id="Fai-Ff-ZiK"/>
                                         <constraint firstItem="ylw-6N-FWe" firstAttribute="leading" secondItem="czo-Ap-xYr" secondAttribute="leading" id="ILY-YB-bNE"/>
                                         <constraint firstAttribute="bottom" secondItem="ylw-6N-FWe" secondAttribute="bottom" constant="-5" id="JBm-Kq-Brq"/>
                                         <constraint firstAttribute="trailing" secondItem="NkW-3b-yuG" secondAttribute="trailing" constant="1" id="LS9-Bb-GNZ"/>
                                         <constraint firstItem="q3d-Ou-PrW" firstAttribute="top" secondItem="czo-Ap-xYr" secondAttribute="top" id="PDJ-b7-u9W"/>
-                                        <constraint firstItem="uP2-aA-Lgb" firstAttribute="centerY" secondItem="czo-Ap-xYr" secondAttribute="centerY" id="UQI-g1-V0m"/>
+                                        <constraint firstItem="uP2-aA-Lgb" firstAttribute="centerY" secondItem="czo-Ap-xYr" secondAttribute="centerY" constant="-10" id="UPh-0i-C6C"/>
                                         <constraint firstItem="Obw-OI-HE8" firstAttribute="centerX" secondItem="czo-Ap-xYr" secondAttribute="centerX" id="YBf-DZ-Cj8"/>
                                         <constraint firstItem="gHO-Nb-Gfo" firstAttribute="centerY" secondItem="czo-Ap-xYr" secondAttribute="centerY" id="a0l-VP-UKi"/>
                                         <constraint firstAttribute="bottom" secondItem="q3d-Ou-PrW" secondAttribute="bottom" id="bTl-dS-bva"/>
                                         <constraint firstItem="q3d-Ou-PrW" firstAttribute="leading" secondItem="czo-Ap-xYr" secondAttribute="leading" id="dMF-Cs-Vgm"/>
-                                        <constraint firstItem="uP2-aA-Lgb" firstAttribute="centerX" secondItem="czo-Ap-xYr" secondAttribute="centerX" id="f0w-Ry-nu1"/>
                                         <constraint firstAttribute="bottom" secondItem="NkW-3b-yuG" secondAttribute="bottom" id="mlg-z3-Va5"/>
                                         <constraint firstItem="ylw-6N-FWe" firstAttribute="top" secondItem="czo-Ap-xYr" secondAttribute="top" id="n20-S8-lAx"/>
                                         <constraint firstAttribute="trailing" secondItem="q3d-Ou-PrW" secondAttribute="trailing" constant="1" id="rFX-XQ-8Z4"/>
@@ -1377,12 +1377,12 @@ DQ
         <image name="animeup" width="358" height="289"/>
         <image name="aqi.medium" catalog="system" width="19" height="18"/>
         <image name="arrow.left.and.right" catalog="system" width="16" height="10"/>
-        <image name="arrow.uturn.down.square.fill" catalog="system" width="15" height="14"/>
         <image name="arrowshape.turn.up.forward.fill" catalog="system" width="17" height="14"/>
         <image name="circlebadge.fill" catalog="system" width="12" height="12"/>
         <image name="clear" catalog="system" width="15" height="14"/>
         <image name="doc" catalog="system" width="14" height="16"/>
         <image name="shot1" width="861" height="774"/>
+        <image name="square.and.arrow.down" catalog="system" width="15" height="16"/>
         <image name="stop.fill" catalog="system" width="14" height="13"/>
         <namedColor name="AccentColor">
             <color red="0.31400001049041748" green="0.32899999618530273" blue="0.99199998378753662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

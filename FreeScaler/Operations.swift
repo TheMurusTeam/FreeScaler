@@ -487,7 +487,7 @@ extension AppDelegate {
     func displayWelcome() {
 #if DEBUG
         // always show welcome in debug
-        //self.window?.beginSheet(self.welcomeWindow)
+        self.window?.beginSheet(self.welcomeWindow)
 #else
         if UserDefaults.standard.value(forKey: welcomeKey) as? Bool != true {
             // store default value to avoid displaying welcome window more than one time
