@@ -19,7 +19,7 @@ var upscalername = String() // current upscaler binary name (used for kill comma
 
 
 
-// MARK: UPSCALE
+// MARK: UPSCALE SINGLE IMAGE
 
 // output image is saved to a temporary directory inside app's sandbox
 

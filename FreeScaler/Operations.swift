@@ -39,6 +39,7 @@ func importedNewFile(path:String) {
     }
     // import PNG/JPEG
     if let image = NSImage(contentsOf: URL(fileURLWithPath: path)) {
+        freeScalerMode = 0
         // CHECK IMAGE SIZE
         if image.size.width > 3840 || image.size.height > 2160 {
             // ERROR, TOO BIG
@@ -49,6 +50,8 @@ func importedNewFile(path:String) {
         } else {
             // SIZE OK
             if let appdelegate = NSApplication.shared.delegate as? AppDelegate {
+                // switch to single image view
+                appdelegate.mainTabView.selectTabViewItem(at: 0)
                 // metti app in primo piano
                 NSApplication.shared.activate(ignoringOtherApps: true)
                 // show tip popover
@@ -83,6 +86,10 @@ func importedNewFile(path:String) {
 
 
 
+
+
+
+
 extension AppDelegate {
     
     // MARK: IMPORT IMAGE FROM FILE
@@ -90,12 +97,18 @@ extension AppDelegate {
     @IBAction func clickImport(_ sender: Any) {
         let myFiledialog:NSOpenPanel = NSOpenPanel()
         myFiledialog.allowsMultipleSelection = false
-        myFiledialog.canChooseDirectories = false
+        myFiledialog.canChooseDirectories = true
         myFiledialog.title = "Import Image"
         myFiledialog.runModal()
         if let chosenfile = myFiledialog.url {
             if (chosenfile.isPNG || chosenfile.isJPEG) {
+                // SINGLE IMAGE
                 importedNewFile(path: chosenfile.relativePath)
+            } else if chosenfile.isFolder {
+                // BATCH FOLDR
+                if let batchview = viewCtrl["batch"] as? FSBatchViewController {
+                    batchview.importedNewFolder(selectedURL: chosenfile)
+                }
             } else {
                 // unsupported image size
                 let alert = NSAlert()
@@ -110,6 +123,20 @@ extension AppDelegate {
     // MARK: CLICK UPSCALE
     
     @IBAction func clickUpscale(_ sender: Any) {
+        if freeScalerMode == 0 {
+            // upscale single image
+            self.upscaleSingleImage()
+        } else if freeScalerMode == 1 {
+            // upscale batch
+            if let batch = viewCtrl["batch"] as? FSBatchViewController { batch.runBatchUpscale() }
+        }
+    }
+    
+    
+    
+    // UPSCALE SINGLE IMAGE
+    
+    func upscaleSingleImage() {
         if let input = self.inputpath {
             // delete temporary file if needed
             do {
@@ -182,6 +209,8 @@ extension AppDelegate {
     }
     
     
+    
+    
     // MARK: CLICK STOP
     
     // abort upscale task
@@ -243,22 +272,47 @@ extension AppDelegate {
     
     // clear current images
     @IBAction func clickClear(_ sender: Any) {
-        self.splitview.setPosition(self.window.frame.size.width, ofDividerAt: 0)
+        self.clearAll()
+    }
+    
+    func clearAll() {
+        freeScalerMode = 0
         self.previewup.image = nil
         self.upscaleBtn.isEnabled = false
         self.saveBtn.isEnabled = false
         self.clearBtn.isEnabled = false
+        self.importBtn.isEnabled = true
+        self.popupscale.isEnabled = true
+        self.popupmodel.isEnabled = true
         self.tb_upscale.isEnabled = false
         self.tb_save.isEnabled = false
         self.tb_clear.isEnabled = false
+        self.tb_import.isEnabled = true
+        self.tb_popupscale.isEnabled = true
+        self.tb_popupmodel.isEnabled = true
         self.droplabelview.isHidden = false
         self.preview.image = nil
+        // batch view
+        if let batch = viewCtrl["batch"] as? FSBatchViewController {
+            batch.images = [FSImage]()
+            batch.imagesArrayController.content = nil
+        }
+        // switch to single image view
+        self.mainTabView.selectTabViewItem(at: 0)
+        self.splitview.setPosition(self.window.frame.size.width, ofDividerAt: 0)
         // delete temporary file if needed
         do {
             try FileManager.default.removeItem(atPath: temporaryoutputpath)
         } catch {}
+        do {
+            let fileURLs = try FileManager.default.contentsOfDirectory(at: URL(fileURLWithPath: temporaryoutputBatchpath),
+                                                                       includingPropertiesForKeys: nil,
+                                                                       options: .skipsHiddenFiles)
+            for fileURL in fileURLs {
+                try FileManager.default.removeItem(at: fileURL)
+            }
+        } catch  { }
     }
-    
     
     
     
@@ -274,30 +328,86 @@ extension AppDelegate {
         let customService = NSSharingService(title: "Save Image As...", image: image, alternateImage: image, handler: {
             if let _ = items.first as? NSImage {
                 // action
-                self.displaySavePanel()
+                if freeScalerMode == 0 {
+                    self.displaySavePanel()
+                } else if freeScalerMode == 1 {
+                    self.displaySavePanelForBatch()
+                }
             }
         })
         share.insert(customService, at: 0)
         return share
     }
     
+    
+    
     // share or save output image
     @IBAction func clickSaveButton(_ sender: NSButton) {
-        let image = self.previewup.image ?? NSImage()
-        let sharingPicker = NSSharingServicePicker(items: [image])
+        var items = [NSImage]()
+        if freeScalerMode == 0 {
+            // SHARE SINGLE IMAGE
+            if let image = self.previewup.image {
+                items = [image]
+            }
+        } else if freeScalerMode == 1 {
+            // SHARE BATCH IMAGES
+            if let batch = viewCtrl["batch"] as? FSBatchViewController {
+                for img in batch.images {
+                    items.append(img.upscaledImage)
+                }
+            }
+        }
+        
+        let sharingPicker = NSSharingServicePicker(items: items)
         sharingPicker.delegate = self
         sharingPicker.show(relativeTo: NSZeroRect, of: sender, preferredEdge: .minY)
     }
     
+    
+    
     // called when pressing COMMAND-S to save the output image
     @IBAction func selectSaveAsMenuItem(_ sender: Any) {
-        if let _ = self.previewup.image {
-            displaySavePanel()
+        if freeScalerMode == 0 {
+            // SHARE SINGLE IMAGE
+            if let _ = self.previewup.image {
+                displaySavePanel()
+            }
+        } else if freeScalerMode == 1 {
+            // SHARE BATCH IMAGES
+            displaySavePanelForBatch()
         }
     }
     
     
-    // save panel
+    // save panel for batch folder
+    func displaySavePanelForBatch() {
+        let panel = NSOpenPanel()
+        panel.canCreateDirectories = true
+        panel.canChooseDirectories = true
+        panel.canChooseFiles = false
+        panel.title = "Save images"
+        panel.prompt = "Save Images"
+        if panel.runModal().rawValue == 1 {
+            if let path = panel.url?.path {
+                do {
+                    let fileURLs = try FileManager.default.contentsOfDirectory(at: URL(fileURLWithPath: temporaryoutputBatchpath),
+                                                                               includingPropertiesForKeys: nil,
+                                                                               options: .skipsHiddenFiles)
+                    for fileURL in fileURLs {
+                        
+                        let filename = fileURL.lastPathComponent
+                        let filenoext = (filename as NSString).deletingPathExtension
+                        let proposedfilename = filenoext + "-UPSCALED" + ".\(fileformat)"
+                        
+                        try FileManager.default.copyItem(atPath: fileURL.relativePath, toPath: (path + "/\(proposedfilename)"))
+                    }
+                    //try FileManager.default.copyItem(atPath: temporaryoutputBatchpath, toPath: path)
+                } catch {}
+            }
+        }
+    }
+    
+    // save panel for single image
     func displaySavePanel() {
         let panel = NSSavePanel()
         // suggested file name
@@ -310,7 +420,7 @@ extension AppDelegate {
             }
         }
         panel.title = "Save image"
-        panel.prompt = "Save"
+        panel.prompt = "Save Image"
         if panel.runModal().rawValue == 1 {
             if let path = panel.url?.path {
                 do {

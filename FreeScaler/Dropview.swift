@@ -55,6 +55,16 @@ class DropView: NSView {
         guard let pasteboard = sender.draggingPasteboard.propertyList(forType: NSPasteboard.PasteboardType(rawValue: "NSFilenamesPboardType")) as? NSArray,
               let path = pasteboard[0] as? String
         else { return NSDragOperation() }
+        
+        if pasteboard.count == 1 {
+            if URL(fileURLWithPath: path).isPNG || URL(fileURLWithPath: path).isJPEG || URL(fileURLWithPath: path).isFolder {
+                return .copy
+            }
+        }
+        
+        
+        
+        /*
         if pasteboard.count == 1 {
             if ((NSApplication.shared.delegate as! AppDelegate).freeScalerMode == 0 &&
                (URL(fileURLWithPath: path).isPNG || URL(fileURLWithPath: path).isJPEG))
@@ -64,6 +74,7 @@ class DropView: NSView {
                 return .copy
             }
         }
+        */
         return NSDragOperation()
         
     }
@@ -82,7 +93,33 @@ class DropView: NSView {
         guard let pasteboard = sender.draggingPasteboard.propertyList(forType: NSPasteboard.PasteboardType(rawValue: "NSFilenamesPboardType")) as? NSArray,
               let path = pasteboard[0] as? String
         else { return false }
-        //
+        
+        
+        let url = URL(fileURLWithPath: path)
+        if url.isJPEG || url.isPNG {
+            
+            // SINGLE IMAGE
+            
+            print("importing single image from file at \(path)")
+            importedNewFile(path: path)
+            return true
+        } else if url.isFolder {
+            
+            // BATCH FOLDER
+            
+            print("importing images from folder at \(path)")
+            if let batchview = viewCtrl["batch"] as? FSBatchViewController {
+                batchview.importedNewFolder(selectedURL: url)
+            }
+            return true
+        } else {
+            print("cannot import, object is not a PNG or JPEG image")
+            return false
+        }
+        
+        
+        
+        /*
         if (NSApplication.shared.delegate as! AppDelegate).freeScalerMode == 0 {
             
             // SINGLE IMAGE
@@ -90,6 +127,7 @@ class DropView: NSView {
             let url = URL(fileURLWithPath: path)
             if url.isJPEG || url.isPNG {
                 print("importing single image from file at \(path)")
+                (NSApplication.shared.delegate as! AppDelegate).mainTabView.selectTabViewItem(at: 0)
                 importedNewFile(path: path)
                 return true
             } else {
@@ -104,13 +142,16 @@ class DropView: NSView {
             let url = URL(fileURLWithPath: path)
             if url.isFolder {
                 print("importing images from folder at \(path)")
+                (NSApplication.shared.delegate as! AppDelegate).mainTabView.selectTabViewItem(at: 1)
                 return true
             } else {
                 print("cannot import for batch processing, object is not a folder")
                 return false
             }
         }
-        return false
+         return false
+        */
+        
     }
 }
 

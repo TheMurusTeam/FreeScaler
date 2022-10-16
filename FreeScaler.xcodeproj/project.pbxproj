@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F2465D528FB2C67006DA86A /* FSBatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2465D328FB2C67006DA86A /* FSBatchViewController.swift */; };
+		3F2465D628FB2C67006DA86A /* FSBatchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F2465D428FB2C67006DA86A /* FSBatchViewController.xib */; };
 		3F2AA4D128F89F47008DB84B /* LICENSE.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 3F2AA4D028F89F47008DB84B /* LICENSE.rtf */; };
 		3F35482428F9FD8D00F284D1 /* Batch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F35482328F9FD8D00F284D1 /* Batch.swift */; };
 		3F3F726A28F88A06006BC03A /* Start FreeScaler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3F726928F88A06006BC03A /* Start FreeScaler.swift */; };
@@ -32,6 +34,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F2465D328FB2C67006DA86A /* FSBatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSBatchViewController.swift; sourceTree = "<group>"; };
+		3F2465D428FB2C67006DA86A /* FSBatchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FSBatchViewController.xib; sourceTree = "<group>"; };
 		3F2AA4D028F89F47008DB84B /* LICENSE.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = LICENSE.rtf; sourceTree = "<group>"; };
 		3F35482328F9FD8D00F284D1 /* Batch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Batch.swift; sourceTree = "<group>"; };
 		3F3F726928F88A06006BC03A /* Start FreeScaler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Start FreeScaler.swift"; sourceTree = "<group>"; };
@@ -70,6 +74,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F2465D228FB2C47006DA86A /* batch */ = {
+			isa = PBXGroup;
+			children = (
+				3F2465D328FB2C67006DA86A /* FSBatchViewController.swift */,
+				3F2465D428FB2C67006DA86A /* FSBatchViewController.xib */,
+			);
+			path = batch;
+			sourceTree = "<group>";
+		};
 		3FA7E28528F58D7200DAE403 /* img */ = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +129,7 @@
 				3FA7E28528F58D7200DAE403 /* img */,
 				3FC37D6128F4B03B001CF0B7 /* realesrgan */,
 				3FA9884628F76701006A968A /* realsr */,
+				3F2465D228FB2C47006DA86A /* batch */,
 				3FC37D5428F4AFFE001CF0B7 /* AppDelegate.swift */,
 				3F3F726928F88A06006BC03A /* Start FreeScaler.swift */,
 				3FC37D6C28F4C68D001CF0B7 /* Operations.swift */,
@@ -211,6 +225,7 @@
 				3FC37D6328F4B04A001CF0B7 /* fs-realesrgan-ncnn-vulkan in Resources */,
 				3FA7E28728F58D7C00DAE403 /* Freescaler.png in Resources */,
 				3FA9885028F76723006A968A /* fs-realsr-ncnn-vulkan in Resources */,
+				3F2465D628FB2C67006DA86A /* FSBatchViewController.xib in Resources */,
 				3FC37D6528F4B057001CF0B7 /* README_macos.md in Resources */,
 				3FC37D5A28F4AFFF001CF0B7 /* MainMenu.xib in Resources */,
 			);
@@ -229,6 +244,7 @@
 				3FA9884328F73419006A968A /* Preferences.swift in Sources */,
 				3F81151B28FB0EA300C03DF9 /* ServiceProvider.swift in Sources */,
 				3FC37D5528F4AFFE001CF0B7 /* AppDelegate.swift in Sources */,
+				3F2465D528FB2C67006DA86A /* FSBatchViewController.swift in Sources */,
 				3FC37D6D28F4C68D001CF0B7 /* Operations.swift in Sources */,
 				3F3F726A28F88A06006BC03A /* Start FreeScaler.swift in Sources */,
 			);
@@ -369,7 +385,7 @@
 				CODE_SIGN_ENTITLEMENTS = FreeScaler/FreeScaler.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 38;
+				CURRENT_PROJECT_VERSION = 40;
 				DEVELOPMENT_TEAM = RNLG254GCK;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -400,7 +416,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "3rd Party Mac Developer Application";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 38;
+				CURRENT_PROJECT_VERSION = 40;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = RNLG254GCK;
 				ENABLE_HARDENED_RUNTIME = YES;

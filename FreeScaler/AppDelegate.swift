@@ -25,6 +25,19 @@ import Cocoa
 // https://www.murusfirewall.com/freescaler
 // info@murus.it
 
+var viewCtrl = [String:NSViewController]()
+
+// apply view constraints
+func applyConstraints(view:NSView,containerView:NSView,_ translate:Bool = false) {
+    view.translatesAutoresizingMaskIntoConstraints = translate
+    containerView.addConstraint(NSLayoutConstraint(item: view, attribute: .top, relatedBy: .equal, toItem: containerView, attribute: .top, multiplier: 1, constant: 0))
+    containerView.addConstraint(NSLayoutConstraint(item: view, attribute: .bottom, relatedBy: .equal, toItem: containerView, attribute:.bottom, multiplier: 1, constant: 0))
+    containerView.addConstraint(NSLayoutConstraint(item: view, attribute: .trailing, relatedBy: .equal, toItem: containerView, attribute: .trailing, multiplier: 1, constant: 0))
+    containerView.addConstraint(NSLayoutConstraint(item: view, attribute: .leading, relatedBy: .equal, toItem: containerView, attribute:.leading, multiplier: 1, constant: 0))
+}
+
+
+var freeScalerMode : Int = 0 // 0:single image, 1:batch
 
 
 @main
@@ -50,6 +63,7 @@ class AppDelegate: NSObject, NSApplicationDelegate,
     @IBOutlet weak var aboutwin: NSWindow!              // about window
     @IBOutlet weak var welcomeWindow: NSWindow!         // welcome window
     @IBOutlet weak var prefsWindow: NSWindow!           // prefs window
+    @IBOutlet weak var mainTabView: NSTabView!
     @IBOutlet weak var droplabelview: NSView!
     @IBOutlet weak var iprogress: NSProgressIndicator!
     @IBOutlet weak var progress: NSProgressIndicator!
@@ -77,6 +91,7 @@ class AppDelegate: NSObject, NSApplicationDelegate,
     @IBOutlet weak var tb_save: NSToolbarItem!
     @IBOutlet weak var tb_import: NSToolbarItem!
     @IBOutlet weak var tb_popupscale: NSToolbarItem!
+    @IBOutlet weak var tb_popupmodel: NSToolbarItem!
     // tb buttons
     @IBOutlet weak var saveBtn: NSButton!
     @IBOutlet weak var upscaleBtn: NSButton!
@@ -86,10 +101,12 @@ class AppDelegate: NSObject, NSApplicationDelegate,
     @IBOutlet weak var popupscale: NSPopUpButton!
     @IBOutlet weak var ttaBtn: NSButton!
     
+    @IBOutlet weak var view_batch: NSView!
+    
+    
     
     // VARS
     
-    var freeScalerMode : Int = 0
     var inputpath : String? = nil
     var originalsize : NSSize? = nil
     

@@ -26,6 +26,7 @@
                 <outlet property="importBtn" destination="4Aj-Ll-Rzz" id="0Uk-Oy-Get"/>
                 <outlet property="iprogress" destination="mJL-f6-Kor" id="mOa-qO-FWP"/>
                 <outlet property="leftview" destination="8Lo-qr-uVC" id="QPE-Y3-eQy"/>
+                <outlet property="mainTabView" destination="FoJ-Gc-YYU" id="6zm-iJ-tbE"/>
                 <outlet property="popoverTxt" destination="r8G-7W-3rU" id="UfJ-DJ-FTQ"/>
                 <outlet property="popoverView" destination="1U8-kD-WsE" id="ZEl-vl-Iqm"/>
                 <outlet property="popup_format" destination="Toy-7U-kNs" id="t0a-qz-1nf"/>
@@ -42,13 +43,15 @@
                 <outlet property="splitview" destination="ylw-6N-FWe" id="JOF-yV-VcO"/>
                 <outlet property="tb_clear" destination="2lS-Al-IJu" id="4PK-Qt-BHT"/>
                 <outlet property="tb_import" destination="Pox-IC-Bkd" id="c8s-qp-nF3"/>
+                <outlet property="tb_popupmodel" destination="iyA-ht-rNx" id="na9-2v-g9y"/>
                 <outlet property="tb_popupscale" destination="rVO-rb-2Y1" id="dOg-Vu-94Q"/>
                 <outlet property="tb_save" destination="SgH-1i-UN2" id="slU-IT-9Es"/>
                 <outlet property="tb_upscale" destination="vbd-jO-bpD" id="bJD-fa-kip"/>
                 <outlet property="tipsSuppressionBtn" destination="Mf4-e4-naM" id="gMd-I9-xzR"/>
-                <outlet property="ttaBtn" destination="AK8-7h-pqW" id="SDQ-mK-dK6"/>
+                <outlet property="ttaBtn" destination="aJs-PH-eca" id="d8z-LJ-nrP"/>
                 <outlet property="upscaleBtn" destination="Oaj-ak-ySN" id="knB-sp-Hda"/>
                 <outlet property="versionstring" destination="9Xi-hX-548" id="UO2-eh-0LO"/>
+                <outlet property="view_batch" destination="nr1-at-c4O" id="pX7-Bq-rll"/>
                 <outlet property="welcomeTabview" destination="7vP-y4-cBg" id="T7H-ea-DSG"/>
                 <outlet property="welcomeWindow" destination="bTg-I3-3OO" id="1WP-xS-j9i"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
@@ -373,34 +376,6 @@
                                 <view key="view" id="nr1-at-c4O">
                                     <rect key="frame" x="0.0" y="0.0" width="780" height="443"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <scrollView wantsLayer="YES" fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jiY-hT-FwB">
-                                            <rect key="frame" x="33" y="200" width="250" height="160"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <clipView key="contentView" id="pxK-gV-yvH">
-                                                <rect key="frame" x="1" y="1" width="248" height="158"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                <subviews>
-                                                    <collectionView id="2UI-kA-Whz">
-                                                        <rect key="frame" x="0.0" y="0.0" width="248" height="158"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                                        <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="w9Y-Qh-v6z">
-                                                            <size key="itemSize" width="50" height="50"/>
-                                                        </collectionViewFlowLayout>
-                                                        <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                    </collectionView>
-                                                </subviews>
-                                            </clipView>
-                                            <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="rVn-17-bW4">
-                                                <rect key="frame" x="1" y="144" width="233" height="15"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                            </scroller>
-                                            <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="oN9-Gv-w1x">
-                                                <rect key="frame" x="234" y="1" width="15" height="143"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                            </scroller>
-                                        </scrollView>
-                                    </subviews>
                                 </view>
                             </tabViewItem>
                         </tabViewItems>
@@ -521,53 +496,35 @@
                             </popUpButtonCell>
                         </popUpButton>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="80A8F486-8880-4F82-BF71-9C92384B7C37" label="Mode" paletteLabel="Mode" bordered="YES" title="Single image" sizingBehavior="auto" autovalidates="NO" id="dCr-aw-Kz4">
+                    <toolbarItem implicitItemIdentifier="5A5A7904-0128-4871-A271-16BB3047A352" label="Reduce Artefacts" paletteLabel="Reduce Artefacts" tag="-1" title="Box" sizingBehavior="auto" id="FHU-EE-CL9">
                         <nil key="toolTip"/>
-                        <popUpButton key="view" toolTip="SCALE" verticalHuggingPriority="750" id="Q81-bC-SHj">
-                            <rect key="frame" x="0.0" y="14" width="113" height="25"/>
-                            <autoresizingMask key="autoresizingMask"/>
-                            <popUpButtonCell key="cell" type="roundTextured" title="Single image" bezelStyle="texturedRounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" selectedItem="dOZ-jq-lxe" id="gj7-jf-BSk">
-                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                <font key="font" metaFont="menu"/>
-                                <menu key="menu" id="Lm3-wc-NtW">
-                                    <items>
-                                        <menuItem title="Single image" state="on" id="dOZ-jq-lxe">
-                                            <connections>
-                                                <action selector="selectFirstTabViewItem:" target="FoJ-Gc-YYU" id="0WC-vA-9Co"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Batch" id="fUZ-9E-8cK">
-                                            <connections>
-                                                <action selector="selectLastTabViewItem:" target="FoJ-Gc-YYU" id="t4g-dd-WxK"/>
-                                            </connections>
-                                        </menuItem>
-                                    </items>
-                                </menu>
-                            </popUpButtonCell>
-                        </popUpButton>
-                    </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="A10CE5C6-5059-49D0-AC57-96C24B676658" label="Reduce Artefacts" paletteLabel="Reduce Artefacts" tag="-1" sizingBehavior="auto" id="VRr-YY-ZCH">
-                        <nil key="toolTip"/>
-                        <customView key="view" id="UPb-m5-6rZ">
+                        <box key="view" boxType="custom" borderType="none" cornerRadius="4" title="Box" titlePosition="noTitle" id="c00-vy-rmy">
                             <rect key="frame" x="4" y="14" width="90" height="26"/>
-                            <autoresizingMask key="autoresizingMask"/>
-                            <subviews>
-                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AK8-7h-pqW">
-                                    <rect key="frame" x="3" y="4" width="88" height="18"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <buttonCell key="cell" type="check" title="TTA Mode" bezelStyle="regularSquare" imagePosition="left" inset="2" id="BpU-Bk-Ls2">
-                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                        <font key="font" metaFont="system"/>
-                                    </buttonCell>
-                                </button>
-                            </subviews>
-                        </customView>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <view key="contentView" id="w9S-yp-CEb">
+                                <rect key="frame" x="0.0" y="0.0" width="90" height="26"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aJs-PH-eca">
+                                        <rect key="frame" x="0.0" y="4" width="88" height="18"/>
+                                        <buttonCell key="cell" type="check" title="TTA Mode" bezelStyle="regularSquare" imagePosition="left" inset="2" id="ZDI-FM-LUZ">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="aJs-PH-eca" firstAttribute="centerY" secondItem="w9S-yp-CEb" secondAttribute="centerY" id="01a-GL-Iec"/>
+                                    <constraint firstItem="aJs-PH-eca" firstAttribute="centerX" secondItem="w9S-yp-CEb" secondAttribute="centerX" id="1QQ-8x-ZsS"/>
+                                </constraints>
+                            </view>
+                        </box>
                     </toolbarItem>
                 </allowedToolbarItems>
                 <defaultToolbarItems>
                     <toolbarItem reference="iyA-ht-rNx"/>
                     <toolbarItem reference="rVO-rb-2Y1"/>
-                    <toolbarItem reference="VRr-YY-ZCH"/>
+                    <toolbarItem reference="FHU-EE-CL9"/>
                     <toolbarItem reference="vrA-Rz-Cpi"/>
                     <toolbarItem reference="Pox-IC-Bkd"/>
                     <toolbarItem reference="SgH-1i-UN2"/>
@@ -885,8 +842,8 @@ DQ
                                         <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bp2-EM-xro">
                                             <rect key="frame" x="57" y="243" width="10" height="10"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="dot.circle.fill" catalog="system" id="wju-4y-LU2"/>
-                                            <color key="contentTintColor" name="systemMintColor" catalog="System" colorSpace="catalog"/>
+                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="circlebadge.fill" catalog="system" id="wju-4y-LU2"/>
+                                            <color key="contentTintColor" name="systemPinkColor" catalog="System" colorSpace="catalog"/>
                                         </imageView>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QGN-zO-VNf">
                                             <rect key="frame" x="68" y="148" width="42" height="16"/>
@@ -909,8 +866,8 @@ DQ
                                         <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QcX-K9-CNr">
                                             <rect key="frame" x="57" y="150" width="10" height="10"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="dot.circle.fill" catalog="system" id="8Ha-ci-Qfl"/>
-                                            <color key="contentTintColor" name="systemYellowColor" catalog="System" colorSpace="catalog"/>
+                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="circlebadge.fill" catalog="system" id="8Ha-ci-Qfl"/>
+                                            <color key="contentTintColor" name="systemGreenColor" catalog="System" colorSpace="catalog"/>
                                         </imageView>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nSV-qi-19X">
                                             <rect key="frame" x="68" y="103" width="99" height="16"/>
@@ -958,7 +915,7 @@ DQ
                                         <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U0j-wD-BcU">
                                             <rect key="frame" x="57" y="105" width="10" height="10"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="dot.circle.fill" catalog="system" id="aG2-9C-P6O"/>
+                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="circlebadge.fill" catalog="system" id="aG2-9C-P6O"/>
                                             <color key="contentTintColor" name="systemOrangeColor" catalog="System" colorSpace="catalog"/>
                                         </imageView>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XFs-Kf-pFM">
@@ -1000,8 +957,8 @@ DQ
                                         <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w5c-np-8FT">
                                             <rect key="frame" x="57" y="196" width="10" height="10"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="dot.circle.fill" catalog="system" id="FUB-gf-qiZ"/>
-                                            <color key="contentTintColor" name="systemPurpleColor" catalog="System" colorSpace="catalog"/>
+                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="circlebadge.fill" catalog="system" id="FUB-gf-qiZ"/>
+                                            <color key="contentTintColor" name="systemYellowColor" catalog="System" colorSpace="catalog"/>
                                         </imageView>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9B7-zV-3ej">
                                             <rect key="frame" x="68" y="89" width="100" height="14"/>
@@ -1423,9 +1380,9 @@ DQ
         <image name="arrow.left.and.right" catalog="system" width="16" height="10"/>
         <image name="arrow.uturn.down.square.fill" catalog="system" width="15" height="14"/>
         <image name="arrowshape.turn.up.forward.fill" catalog="system" width="17" height="14"/>
+        <image name="circlebadge.fill" catalog="system" width="12" height="12"/>
         <image name="clear" catalog="system" width="15" height="14"/>
         <image name="doc" catalog="system" width="14" height="16"/>
-        <image name="dot.circle.fill" catalog="system" width="15" height="15"/>
         <image name="shot1" width="861" height="774"/>
         <namedColor name="AccentColor">
             <color red="0.31400001049041748" green="0.32899999618530273" blue="0.99199998378753662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

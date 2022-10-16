@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="21225" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21225"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="FSBatchViewController" customModule="FreeScaler" customModuleProvider="target">
+            <connections>
+                <outlet property="collectionView" destination="BhY-oe-CIU" id="SJz-zj-NeT"/>
+                <outlet property="imagesArrayController" destination="MUf-Eb-U76" id="8yh-xD-CQQ"/>
+                <outlet property="iprogress" destination="yPn-9G-l6a" id="ttZ-6e-yOm"/>
+                <outlet property="progrLabel" destination="xly-7I-0CV" id="7R5-4O-7Al"/>
+                <outlet property="progrStopBtn" destination="JIU-ES-Smz" id="i4T-fr-2i0"/>
+                <outlet property="progress" destination="igr-Cb-AhD" id="SwF-hQ-vTH"/>
+                <outlet property="progrview" destination="bfo-Pk-Uat" id="gVQ-tY-vVD"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY" userLabel="Batch View">
+            <rect key="frame" x="0.0" y="0.0" width="609" height="349"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <scrollView wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PML-IX-0qh">
+                    <rect key="frame" x="0.0" y="0.0" width="609" height="349"/>
+                    <clipView key="contentView" id="ZTE-JX-uuP">
+                        <rect key="frame" x="0.0" y="0.0" width="609" height="349"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView focusRingType="none" allowsEmptySelection="NO" id="BhY-oe-CIU">
+                                <rect key="frame" x="0.0" y="0.0" width="609" height="349"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <connections>
+                                    <binding destination="MUf-Eb-U76" name="content" keyPath="arrangedObjects" id="t3m-xN-9Vp"/>
+                                    <binding destination="MUf-Eb-U76" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="t3m-xN-9Vp" id="dEh-0j-nzI"/>
+                                    <outlet property="itemPrototype" destination="5YJ-6P-U44" id="o66-cp-G7T"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                    </clipView>
+                    <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="7WE-Qc-LdS">
+                        <rect key="frame" x="1" y="144" width="233" height="15"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="Cvc-ny-9gt">
+                        <rect key="frame" x="234" y="1" width="15" height="143"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
+                <customView hidden="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bfo-Pk-Uat" userLabel="progr View">
+                    <rect key="frame" x="235" y="114" width="140" height="122"/>
+                    <subviews>
+                        <progressIndicator fixedFrame="YES" maxValue="10000" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="igr-Cb-AhD">
+                            <rect key="frame" x="54" y="67" width="32" height="32"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        </progressIndicator>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xly-7I-0CV">
+                            <rect key="frame" x="4" y="46" width="131" height="16"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Please wait..." id="AyS-QR-D1n">
+                                <font key="font" metaFont="system"/>
+                                <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JIU-ES-Smz">
+                            <rect key="frame" x="21" y="9" width="101" height="19"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="roundRect" title="Stop" bezelStyle="roundedRect" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="WZD-p7-Vdq">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="cellTitle"/>
+                            </buttonCell>
+                        </button>
+                        <progressIndicator fixedFrame="YES" maxValue="100" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="yPn-9G-l6a">
+                            <rect key="frame" x="54" y="67" width="32" height="32"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        </progressIndicator>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="140" id="ONv-3m-gx2"/>
+                        <constraint firstAttribute="height" constant="122" id="jNm-1o-c6E"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                            <color key="value" name="windowBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </customView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="PML-IX-0qh" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="58P-P1-oei"/>
+                <constraint firstAttribute="trailing" secondItem="PML-IX-0qh" secondAttribute="trailing" id="FQd-kh-O9W"/>
+                <constraint firstAttribute="bottom" secondItem="PML-IX-0qh" secondAttribute="bottom" id="Luv-zt-CEz"/>
+                <constraint firstItem="PML-IX-0qh" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="c90-DI-bL1"/>
+                <constraint firstItem="bfo-Pk-Uat" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="rK1-aA-0DZ"/>
+                <constraint firstItem="bfo-Pk-Uat" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="x1b-mD-C97"/>
+            </constraints>
+            <point key="canvasLocation" x="138" y="315"/>
+        </customView>
+        <collectionViewItem id="5YJ-6P-U44">
+            <connections>
+                <outlet property="view" destination="a0W-Cw-e4E" id="5H5-36-oPh"/>
+            </connections>
+        </collectionViewItem>
+        <arrayController id="MUf-Eb-U76">
+            <connections>
+                <binding destination="-2" name="contentArray" keyPath="images" id="CZ4-pI-7pc"/>
+            </connections>
+        </arrayController>
+        <box boxType="custom" borderType="none" cornerRadius="4" title="Box" titlePosition="noTitle" id="a0W-Cw-e4E" userLabel="Prototype View">
+            <rect key="frame" x="0.0" y="0.0" width="275" height="196"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <view key="contentView" id="FYj-MK-Mae">
+                <rect key="frame" x="0.0" y="0.0" width="275" height="196"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <subviews>
+                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TTi-VE-9fS">
+                        <rect key="frame" x="17" y="17" width="241" height="162"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="Oaz-eh-eYF"/>
+                        <connections>
+                            <binding destination="5YJ-6P-U44" name="value" keyPath="representedObject.thumbnail" id="aKX-iA-miG"/>
+                        </connections>
+                    </imageView>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oqD-Bb-oid">
+                        <rect key="frame" x="243" y="164" width="26" height="26"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="ESY-Pn-fhb"/>
+                            <constraint firstAttribute="height" constant="20" id="y82-PA-jQX"/>
+                        </constraints>
+                        <buttonCell key="cell" type="round" bezelStyle="circular" image="NSRemoveTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="CLA-CL-pbl">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="deleteImage:" target="-2" id="ET0-xH-oQj"/>
+                            <binding destination="-2" name="hidden" keyPath="isUpscaling" id="gY1-3g-J9X"/>
+                            <binding destination="5YJ-6P-U44" name="toolTip" keyPath="representedObject.path" id="T69-D6-Och"/>
+                        </connections>
+                    </button>
+                    <textField verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3f5-Ct-HCC">
+                        <rect key="frame" x="92" y="10" width="92" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="92" id="SH4-ij-awQ"/>
+                            <constraint firstAttribute="height" constant="22" id="hwR-Hs-C8R"/>
+                        </constraints>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" allowsUndo="NO" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" placeholderString="3840X2160" bezelStyle="round" id="202-LR-k2a">
+                            <font key="font" metaFont="systemMedium" size="12"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <binding destination="5YJ-6P-U44" name="value" keyPath="representedObject.sizeString" id="f12-YX-7EO"/>
+                        </connections>
+                    </textField>
+                    <box fixedFrame="YES" boxType="custom" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="S73-f6-E42">
+                        <rect key="frame" x="108" y="68" width="60" height="60"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <view key="contentView" id="uw6-zp-3wo">
+                            <rect key="frame" x="1" y="1" width="58" height="58"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <progressIndicator fixedFrame="YES" maxValue="10000" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="MQq-k6-uFJ">
+                                    <rect key="frame" x="13" y="13" width="32" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <connections>
+                                        <binding destination="5YJ-6P-U44" name="hidden" keyPath="representedObject.isUpscaling" id="vMt-wM-PeH">
+                                            <dictionary key="options">
+                                                <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                            </dictionary>
+                                        </binding>
+                                        <binding destination="5YJ-6P-U44" name="value" keyPath="representedObject.progr" id="Rtf-aS-W5E"/>
+                                    </connections>
+                                </progressIndicator>
+                            </subviews>
+                        </view>
+                        <color key="borderColor" name="AccentColor"/>
+                        <color key="fillColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <integer key="value" value="28"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <binding destination="5YJ-6P-U44" name="hidden" keyPath="representedObject.isUpscaling" id="Xcb-4K-crF">
+                                <dictionary key="options">
+                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                </dictionary>
+                            </binding>
+                        </connections>
+                    </box>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="oqD-Bb-oid" firstAttribute="top" secondItem="FYj-MK-Mae" secondAttribute="top" constant="9" id="2cr-8U-5SP"/>
+                    <constraint firstAttribute="trailing" secondItem="oqD-Bb-oid" secondAttribute="trailing" constant="9" id="8qB-lg-Cvh"/>
+                    <constraint firstAttribute="bottom" secondItem="TTi-VE-9fS" secondAttribute="bottom" constant="20" symbolic="YES" id="FJ0-61-IHM"/>
+                    <constraint firstAttribute="trailing" secondItem="TTi-VE-9fS" secondAttribute="trailing" constant="20" symbolic="YES" id="PFq-ZY-ZK8"/>
+                    <constraint firstItem="TTi-VE-9fS" firstAttribute="top" secondItem="FYj-MK-Mae" secondAttribute="top" constant="20" symbolic="YES" id="Qjx-8n-iOg"/>
+                    <constraint firstItem="3f5-Ct-HCC" firstAttribute="centerX" secondItem="FYj-MK-Mae" secondAttribute="centerX" id="V4b-Za-GUU"/>
+                    <constraint firstAttribute="bottom" secondItem="3f5-Ct-HCC" secondAttribute="bottom" constant="10" id="aZ3-tB-Wey"/>
+                    <constraint firstItem="TTi-VE-9fS" firstAttribute="leading" secondItem="FYj-MK-Mae" secondAttribute="leading" constant="20" symbolic="YES" id="fjN-Eq-efm"/>
+                </constraints>
+            </view>
+            <connections>
+                <binding destination="5YJ-6P-U44" name="transparent" keyPath="selected" id="9mv-kj-KFU">
+                    <dictionary key="options">
+                        <string key="NSValueTransformerName">NSNegateBoolean</string>
+                    </dictionary>
+                </binding>
+            </connections>
+            <point key="canvasLocation" x="-0.5" y="-16"/>
+        </box>
+    </objects>
+    <resources>
+        <image name="NSRemoveTemplate" width="14" height="4"/>
+        <namedColor name="AccentColor">
+            <color red="0.31400001049041748" green="0.32899999618530273" blue="0.99199998378753662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

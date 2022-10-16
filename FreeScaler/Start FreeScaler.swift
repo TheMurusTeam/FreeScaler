@@ -14,6 +14,13 @@ extension AppDelegate {
     
     
     func startFreeScale() {
+        
+        viewCtrl["batch"] = FSBatchViewController()
+        if let view = (viewCtrl["batch"] as? FSBatchViewController)?.view {
+            self.view_batch.addSubview(view)
+            applyConstraints(view: view, containerView: (self.view_batch))
+        }
+        
         // service provider
         NSApplication.shared.servicesProvider = ServiceProvider()
         NSUpdateDynamicServices()
@@ -38,6 +45,10 @@ extension AppDelegate {
         self.droplabelview.layer?.borderWidth = 1
         self.droplabelview.layer?.borderColor = NSColor.tertiaryLabelColor.cgColor
         self.droplabelview.layer?.masksToBounds = true
+        // tmp batch dir
+        do {
+            try FileManager.default.createDirectory(atPath: temporaryoutputBatchpath, withIntermediateDirectories: false)
+        } catch {}
         // display welcome
         self.displayWelcome()
     }
