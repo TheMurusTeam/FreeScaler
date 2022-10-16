@@ -12,7 +12,6 @@
 		3F2465D928FBA329006DA86A /* FSPreviewWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2465D728FBA329006DA86A /* FSPreviewWindowController.swift */; };
 		3F2465DA28FBA329006DA86A /* FSPreviewWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F2465D828FBA329006DA86A /* FSPreviewWindowController.xib */; };
 		3F2AA4D128F89F47008DB84B /* LICENSE.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 3F2AA4D028F89F47008DB84B /* LICENSE.rtf */; };
-		3F35482428F9FD8D00F284D1 /* Batch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F35482328F9FD8D00F284D1 /* Batch.swift */; };
 		3F3F726A28F88A06006BC03A /* Start FreeScaler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3F726928F88A06006BC03A /* Start FreeScaler.swift */; };
 		3F81151B28FB0EA300C03DF9 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F81151A28FB0EA300C03DF9 /* ServiceProvider.swift */; };
 		3FA7E28728F58D7C00DAE403 /* Freescaler.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FA7E28628F58D7C00DAE403 /* Freescaler.png */; };
@@ -41,7 +40,6 @@
 		3F2465D728FBA329006DA86A /* FSPreviewWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSPreviewWindowController.swift; sourceTree = "<group>"; };
 		3F2465D828FBA329006DA86A /* FSPreviewWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FSPreviewWindowController.xib; sourceTree = "<group>"; };
 		3F2AA4D028F89F47008DB84B /* LICENSE.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = LICENSE.rtf; sourceTree = "<group>"; };
-		3F35482328F9FD8D00F284D1 /* Batch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Batch.swift; sourceTree = "<group>"; };
 		3F3F726928F88A06006BC03A /* Start FreeScaler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Start FreeScaler.swift"; sourceTree = "<group>"; };
 		3F47645F28F5A1F100112A79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3F81151A28FB0EA300C03DF9 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
@@ -142,7 +140,6 @@
 				3FC37D6828F4B073001CF0B7 /* Upscaler.swift */,
 				3FC37D6A28F4B802001CF0B7 /* Dropview.swift */,
 				3FA9884228F73419006A968A /* Preferences.swift */,
-				3F35482328F9FD8D00F284D1 /* Batch.swift */,
 				3FC37D5628F4AFFF001CF0B7 /* Assets.xcassets */,
 				3FC37D5828F4AFFF001CF0B7 /* MainMenu.xib */,
 				3FC37D5B28F4AFFF001CF0B7 /* FreeScaler.entitlements */,
@@ -247,7 +244,6 @@
 			files = (
 				3FC37D6928F4B073001CF0B7 /* Upscaler.swift in Sources */,
 				3FC37D6B28F4B802001CF0B7 /* Dropview.swift in Sources */,
-				3F35482428F9FD8D00F284D1 /* Batch.swift in Sources */,
 				3FA9884328F73419006A968A /* Preferences.swift in Sources */,
 				3F81151B28FB0EA300C03DF9 /* ServiceProvider.swift in Sources */,
 				3FC37D5528F4AFFE001CF0B7 /* AppDelegate.swift in Sources */,
@@ -393,7 +389,7 @@
 				CODE_SIGN_ENTITLEMENTS = FreeScaler/FreeScaler.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 41;
+				CURRENT_PROJECT_VERSION = 42;
 				DEVELOPMENT_TEAM = RNLG254GCK;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -424,7 +420,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "3rd Party Mac Developer Application";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 41;
+				CURRENT_PROJECT_VERSION = 42;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = RNLG254GCK;
 				ENABLE_HARDENED_RUNTIME = YES;

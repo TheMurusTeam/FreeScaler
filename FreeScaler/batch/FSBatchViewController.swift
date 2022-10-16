@@ -129,7 +129,8 @@ class FSBatchViewController: NSViewController,NSSharingServicePickerDelegate {
                         // hide share btn
                         appdelegate.saveBtn.isEnabled = false
                         appdelegate.tb_save.isEnabled = false
-                        
+                        appdelegate.showTipPopover(target: appdelegate.upscaleBtn,
+                                                   txt: "Click this button to start batch upscale")
                     } else {
                         // NO IMAGE IMPORTED
                         
@@ -193,8 +194,27 @@ class FSBatchViewController: NSViewController,NSSharingServicePickerDelegate {
     
     // called from toolbar button
     func runBatchUpscale() {
+        // delete temporary batch files if needed
+        do {
+            let fileURLs = try FileManager.default.contentsOfDirectory(at: URL(fileURLWithPath: temporaryoutputBatchpath),
+                                                                       includingPropertiesForKeys: nil,
+                                                                       options: .skipsHiddenFiles)
+            for fileURL in fileURLs {
+                try FileManager.default.removeItem(at: fileURL)
+            }
+        } catch  { }
+        
         self.isUpscaling = true
         self.upscaleStopped = false
+        
+        // reset models
+        for img in self.images {
+            img.isUpscaling = false
+            img.upscaled = false
+            img.upscaledImage = NSImage()
+            img.progr = 0
+            img.outputpath = nil
+        }
         
         if let appdelegate = (NSApplication.shared.delegate as? AppDelegate) {
             // toolbar buttons
@@ -212,14 +232,6 @@ class FSBatchViewController: NSViewController,NSSharingServicePickerDelegate {
             appdelegate.tb_popupmodel.isEnabled = false
             appdelegate.tb_stop.isEnabled = true
             appdelegate.stopBtn.isEnabled = true
-            // reset models
-            for img in self.images {
-                img.isUpscaling = false
-                img.upscaled = false
-                img.upscaledImage = NSImage()
-                img.progr = 0
-                img.outputpath = nil
-            }
         }
         //
         self.upscaleBatch(index: 0)
@@ -268,7 +280,7 @@ class FSBatchViewController: NSViewController,NSSharingServicePickerDelegate {
         // RUN BUILT-IN UPSCALER EXECUTABLE
         
         let img = self.images[index]
-        print("upscaling index:\(index) path:\(img.path)")
+        // print("upscaling index:\(index) path:\(img.path)")
         self.bupscale(upscaler: upscaler,
                       input: img.path,
                       model: model,
@@ -365,7 +377,7 @@ class FSBatchViewController: NSViewController,NSSharingServicePickerDelegate {
                 img.isUpscaling = false
                 
                 if let upscaledImage = NSImage(contentsOf: URL(fileURLWithPath: temporaryoutputBatchpath + outputFileName)) {
-                    print("storing upscaled image into model")
+                    // print("storing upscaled image into model")
                     img.upscaledImage = upscaledImage
                     img.upscaled = true
                     img.outputpath = temporaryoutputBatchpath + outputFileName
@@ -415,6 +427,18 @@ class FSBatchViewController: NSViewController,NSSharingServicePickerDelegate {
                 img.upscaled = false
             }
         }
+        
+        if !self.images.filter({ $0.upscaled }).isEmpty {
+            if !self.images.isEmpty {
+                if let firstitem = self.collectionView.item(at: 0) {
+                    if let appdelegate = (NSApplication.shared.delegate as? AppDelegate) {
+                        appdelegate.showTipPopover(target: firstitem.view,
+                                                   txt: "Select an image and click the magnifier to compare original and upscaled image or click the share button to save the image\n\nClick the share button in the toolbar to save all outscaled images to folder")
+                    }
+                }
+            }
+        }
+        
         // show tmp dir
         //NSWorkspace.shared.activateFileViewerSelecting([URL(fileURLWithPath: temporaryoutputBatchpath)])
     }
@@ -427,7 +451,7 @@ class FSBatchViewController: NSViewController,NSSharingServicePickerDelegate {
             let images = self.images.filter({ $0.path == path })
             if images.count == 1 {
                 let image = images[0]
-                print("preview image at \(path)")
+                // print("preview image at \(path)")
                 winCtrl["preview"] = FSPreviewWindowController(windowNibName: "FSPreviewWindowController",
                                                                inputPath: image.path,
                                                                upscaledImage: image.upscaledImage)

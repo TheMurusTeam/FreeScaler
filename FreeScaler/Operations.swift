@@ -274,6 +274,7 @@ extension AppDelegate {
             self.progress.stopAnimation(nil)
             // put split view divider in the middle to display both images
             self.splitview.setPosition((self.window.frame.size.width / 2), ofDividerAt: 0)
+            // show tip popover
             self.showTipPopover(target: self.dividerPlaceholderView,
                                 txt: "Move the divider to compare the original and the upscaled image")
         }
@@ -320,6 +321,7 @@ extension AppDelegate {
         do {
             try FileManager.default.removeItem(atPath: temporaryoutputpath)
         } catch {}
+        // delete temporary batch files if needed
         do {
             let fileURLs = try FileManager.default.contentsOfDirectory(at: URL(fileURLWithPath: temporaryoutputBatchpath),
                                                                        includingPropertiesForKeys: nil,
@@ -487,7 +489,7 @@ extension AppDelegate {
     func displayWelcome() {
 #if DEBUG
         // always show welcome in debug
-        self.window?.beginSheet(self.welcomeWindow)
+        //self.window?.beginSheet(self.welcomeWindow)
 #else
         if UserDefaults.standard.value(forKey: welcomeKey) as? Bool != true {
             // store default value to avoid displaying welcome window more than one time
