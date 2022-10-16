@@ -193,6 +193,23 @@
                             </binding>
                         </connections>
                     </box>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jaA-Ld-LqK">
+                        <rect key="frame" x="85" y="30" width="106" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Preview" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="huk-GN-VaA">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="clickPreview:" target="-2" id="QZv-4S-QHG"/>
+                            <binding destination="5YJ-6P-U44" name="hidden" keyPath="representedObject.upscaled" id="1JD-Oa-Xgl">
+                                <dictionary key="options">
+                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                </dictionary>
+                            </binding>
+                            <binding destination="5YJ-6P-U44" name="toolTip" keyPath="representedObject.path" id="h1f-ma-MIE"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="oqD-Bb-oid" firstAttribute="top" secondItem="FYj-MK-Mae" secondAttribute="top" constant="9" id="2cr-8U-5SP"/>

@@ -313,7 +313,7 @@ class FSBatchViewController: NSViewController {
                         if let number = Int.parse(from: string) {
                             if number > 10 {
                                 img.progr = Double(number)
-                            } 
+                            }
                         }
                     }
                     outHandle.waitForDataInBackgroundAndNotify()
@@ -378,6 +378,23 @@ class FSBatchViewController: NSViewController {
     }
     
     
+    // MARK: PREVIEW
+    
+    @IBAction func clickPreview(_ sender: NSButton) {
+        if let path = sender.toolTip {
+            let images = self.images.filter({ $0.path == path })
+            if images.count == 1 {
+                let image = images[0]
+                print("preview image at \(path)")
+                winCtrl["preview"] = FSPreviewWindowController(windowNibName: "FSPreviewWindowController",
+                                                               inputPath: image.path,
+                                                               upscaledImage: image.upscaledImage)
+                (winCtrl["preview"] as? FSPreviewWindowController)?.window?.makeKeyAndOrderFront(nil)
+            }
+            
+            
+        }
+    }
     
     
     

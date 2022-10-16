@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="21225" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21225"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="FSPreviewWindowController" customModule="FreeScaler" customModuleProvider="target">
+            <connections>
+                <outlet property="img_left" destination="IcL-DF-X1p" id="T7w-Yf-qGM"/>
+                <outlet property="img_right" destination="fUv-7f-70e" id="K6X-hu-xVe"/>
+                <outlet property="left" destination="qKB-qB-1Yb" id="Fe0-Lm-JSj"/>
+                <outlet property="right" destination="zFy-72-yMN" id="HiT-Fg-9rs"/>
+                <outlet property="splitview" destination="Gal-hd-EtM" id="BH1-CE-yn3"/>
+                <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="Preview" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="previewwin" animationBehavior="default" id="F0z-JX-Cv5">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="646" y="526" width="548" height="399"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1055"/>
+            <value key="minSize" type="size" width="548" height="399"/>
+            <view key="contentView" id="se5-gp-TjO">
+                <rect key="frame" x="0.0" y="0.0" width="548" height="399"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <splitView arrangesAllSubviews="NO" dividerStyle="paneSplitter" vertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gal-hd-EtM">
+                        <rect key="frame" x="0.0" y="0.0" width="548" height="399"/>
+                        <subviews>
+                            <customView fixedFrame="YES" id="qKB-qB-1Yb" userLabel="left">
+                                <rect key="frame" x="0.0" y="0.0" width="271" height="399"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <subviews>
+                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IcL-DF-X1p">
+                                        <rect key="frame" x="0.0" y="0.0" width="548" height="399"/>
+                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="O9G-VF-8LG"/>
+                                    </imageView>
+                                </subviews>
+                            </customView>
+                            <customView fixedFrame="YES" id="zFy-72-yMN" userLabel="right">
+                                <rect key="frame" x="281" y="0.0" width="267" height="399"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <subviews>
+                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fUv-7f-70e">
+                                        <rect key="frame" x="-281" y="0.0" width="548" height="399"/>
+                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="Qv4-id-ojb"/>
+                                    </imageView>
+                                </subviews>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="IcL-DF-X1p" firstAttribute="leading" secondItem="Gal-hd-EtM" secondAttribute="leading" id="02E-yg-Zd0"/>
+                            <constraint firstAttribute="bottom" secondItem="fUv-7f-70e" secondAttribute="bottom" id="EOo-1j-UT7"/>
+                            <constraint firstAttribute="trailing" secondItem="IcL-DF-X1p" secondAttribute="trailing" id="LfA-u9-HFc"/>
+                            <constraint firstItem="fUv-7f-70e" firstAttribute="top" secondItem="Gal-hd-EtM" secondAttribute="top" id="StS-DQ-fX0"/>
+                            <constraint firstAttribute="bottom" secondItem="IcL-DF-X1p" secondAttribute="bottom" id="f7b-PQ-ZOT"/>
+                            <constraint firstAttribute="trailing" secondItem="fUv-7f-70e" secondAttribute="trailing" id="hHI-ed-aje"/>
+                            <constraint firstItem="IcL-DF-X1p" firstAttribute="top" secondItem="Gal-hd-EtM" secondAttribute="top" id="k3p-7o-6rc"/>
+                            <constraint firstItem="fUv-7f-70e" firstAttribute="leading" secondItem="Gal-hd-EtM" secondAttribute="leading" id="zGM-RU-cL7"/>
+                        </constraints>
+                        <holdingPriorities>
+                            <real value="250"/>
+                            <real value="250"/>
+                        </holdingPriorities>
+                    </splitView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Gal-hd-EtM" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" id="9f4-tN-qbA"/>
+                    <constraint firstAttribute="trailing" secondItem="Gal-hd-EtM" secondAttribute="trailing" id="U12-u4-uBn"/>
+                    <constraint firstItem="Gal-hd-EtM" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" id="ios-Tr-rOO"/>
+                    <constraint firstAttribute="bottom" secondItem="Gal-hd-EtM" secondAttribute="bottom" id="kWe-JX-rb7"/>
+                </constraints>
+            </view>
+            <connections>
+                <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
+            </connections>
+            <point key="canvasLocation" x="91" y="188.5"/>
+        </window>
+    </objects>
+</document>

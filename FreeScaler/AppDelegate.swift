@@ -25,7 +25,10 @@ import Cocoa
 // https://www.murusfirewall.com/freescaler
 // info@murus.it
 
+
+// global stores
 var viewCtrl = [String:NSViewController]()
+var winCtrl = [String:NSWindowController]()
 
 // apply view constraints
 func applyConstraints(view:NSView,containerView:NSView,_ translate:Bool = false) {

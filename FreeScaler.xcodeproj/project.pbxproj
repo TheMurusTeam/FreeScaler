@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3F2465D528FB2C67006DA86A /* FSBatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2465D328FB2C67006DA86A /* FSBatchViewController.swift */; };
 		3F2465D628FB2C67006DA86A /* FSBatchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F2465D428FB2C67006DA86A /* FSBatchViewController.xib */; };
+		3F2465D928FBA329006DA86A /* FSPreviewWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2465D728FBA329006DA86A /* FSPreviewWindowController.swift */; };
+		3F2465DA28FBA329006DA86A /* FSPreviewWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F2465D828FBA329006DA86A /* FSPreviewWindowController.xib */; };
 		3F2AA4D128F89F47008DB84B /* LICENSE.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 3F2AA4D028F89F47008DB84B /* LICENSE.rtf */; };
 		3F35482428F9FD8D00F284D1 /* Batch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F35482328F9FD8D00F284D1 /* Batch.swift */; };
 		3F3F726A28F88A06006BC03A /* Start FreeScaler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3F726928F88A06006BC03A /* Start FreeScaler.swift */; };
@@ -36,6 +38,8 @@
 /* Begin PBXFileReference section */
 		3F2465D328FB2C67006DA86A /* FSBatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSBatchViewController.swift; sourceTree = "<group>"; };
 		3F2465D428FB2C67006DA86A /* FSBatchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FSBatchViewController.xib; sourceTree = "<group>"; };
+		3F2465D728FBA329006DA86A /* FSPreviewWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSPreviewWindowController.swift; sourceTree = "<group>"; };
+		3F2465D828FBA329006DA86A /* FSPreviewWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FSPreviewWindowController.xib; sourceTree = "<group>"; };
 		3F2AA4D028F89F47008DB84B /* LICENSE.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = LICENSE.rtf; sourceTree = "<group>"; };
 		3F35482328F9FD8D00F284D1 /* Batch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Batch.swift; sourceTree = "<group>"; };
 		3F3F726928F88A06006BC03A /* Start FreeScaler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Start FreeScaler.swift"; sourceTree = "<group>"; };
@@ -79,6 +83,8 @@
 			children = (
 				3F2465D328FB2C67006DA86A /* FSBatchViewController.swift */,
 				3F2465D428FB2C67006DA86A /* FSBatchViewController.xib */,
+				3F2465D728FBA329006DA86A /* FSPreviewWindowController.swift */,
+				3F2465D828FBA329006DA86A /* FSPreviewWindowController.xib */,
 			);
 			path = batch;
 			sourceTree = "<group>";
@@ -218,6 +224,7 @@
 				3FA9884F28F76723006A968A /* LICENSE in Resources */,
 				3FA9883E28F71577006A968A /* animeup.png in Resources */,
 				3FC37D5728F4AFFF001CF0B7 /* Assets.xcassets in Resources */,
+				3F2465DA28FBA329006DA86A /* FSPreviewWindowController.xib in Resources */,
 				3FA9883F28F71577006A968A /* animelow.png in Resources */,
 				3F2AA4D128F89F47008DB84B /* LICENSE.rtf in Resources */,
 				3FA9884E28F76723006A968A /* README.md in Resources */,
@@ -245,6 +252,7 @@
 				3F81151B28FB0EA300C03DF9 /* ServiceProvider.swift in Sources */,
 				3FC37D5528F4AFFE001CF0B7 /* AppDelegate.swift in Sources */,
 				3F2465D528FB2C67006DA86A /* FSBatchViewController.swift in Sources */,
+				3F2465D928FBA329006DA86A /* FSPreviewWindowController.swift in Sources */,
 				3FC37D6D28F4C68D001CF0B7 /* Operations.swift in Sources */,
 				3F3F726A28F88A06006BC03A /* Start FreeScaler.swift in Sources */,
 			);
