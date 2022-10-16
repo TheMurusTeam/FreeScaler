@@ -699,25 +699,25 @@ DQ
                                             </connections>
                                         </button>
                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sTn-9u-aYx">
-                                            <rect key="frame" x="69" y="63" width="432" height="30"/>
+                                            <rect key="frame" x="69" y="63" width="432" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" selectable="YES" title="Supported image file formats are PNG and JPEG" id="gD1-fm-eDb">
+                                            <textFieldCell key="cell" selectable="YES" title="Supported image file formats are PNG and JPEG. Dragging a folder will automatically switch to batch mode." id="gD1-fm-eDb">
                                                 <font key="font" size="13" name="HelveticaNeue-Italic"/>
                                                 <color key="textColor" name="AccentColor"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6DY-Zg-IlD">
-                                            <rect key="frame" x="145" y="203" width="344" height="16"/>
+                                            <rect key="frame" x="145" y="223" width="377" height="16"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Drag an image file from the Finder to FreeScaler window" id="EG4-2k-Duv">
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Drag an image or folder from the Finder to FreeScaler window" id="EG4-2k-Duv">
                                                 <font key="font" usesAppearanceFont="YES"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="34d-N1-qdZ">
-                                            <rect key="frame" x="145" y="154" width="285" height="16"/>
+                                            <rect key="frame" x="145" y="174" width="285" height="16"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="Click the &quot;Import&quot; button in FreeScaler toolbar" id="5x1-aG-fyF">
                                                 <font key="font" usesAppearanceFont="YES"/>
@@ -726,33 +726,33 @@ DQ
                                             </textFieldCell>
                                         </textField>
                                         <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FB3-p2-JX0">
-                                            <rect key="frame" x="20" y="264" width="43" height="48"/>
+                                            <rect key="frame" x="20" y="284" width="43" height="48"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="1.circle.fill" catalog="system" id="2wh-Ok-5i1"/>
                                         </imageView>
                                         <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JB4-wR-Sb4">
-                                            <rect key="frame" x="116" y="193.5" width="22" height="37"/>
+                                            <rect key="frame" x="116" y="213.5" width="22" height="37"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="doc" catalog="system" id="2p4-fa-TZa"/>
                                         </imageView>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eNr-nY-F2W">
-                                            <rect key="frame" x="69" y="280" width="120" height="16"/>
+                                            <rect key="frame" x="69" y="300" width="195" height="16"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" title="IMPORT AN IMAGE" id="fUr-BW-evW">
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="IMPORT AN IMAGE OR FOLDER" id="fUr-BW-evW">
                                                 <font key="font" usesAppearanceFont="YES"/>
                                                 <color key="textColor" name="AccentColor"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
                                         <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ts9-M7-PAa">
-                                            <rect key="frame" x="116" y="145" width="23" height="35"/>
+                                            <rect key="frame" x="116" y="165" width="23" height="35"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSTouchBarDownloadTemplate" id="ATd-gY-aJM"/>
                                         </imageView>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fDg-jK-YSi">
-                                            <rect key="frame" x="145" y="247" width="239" height="16"/>
+                                            <rect key="frame" x="145" y="267" width="305" height="16"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" title="You have two ways to import an image:" id="1ap-TE-NAr">
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="You have two ways to import an image or a folder:" id="1ap-TE-NAr">
                                                 <font key="font" usesAppearanceFont="YES"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1245,7 +1245,7 @@ DQ
                     </userDefinedRuntimeAttribute>
                 </userDefinedRuntimeAttributes>
             </view>
-            <point key="canvasLocation" x="-150" y="118"/>
+            <point key="canvasLocation" x="-150.5" y="118"/>
         </window>
         <customView id="1U8-kD-WsE" userLabel="Tip Popover View">
             <rect key="frame" x="0.0" y="0.0" width="212" height="171"/>
