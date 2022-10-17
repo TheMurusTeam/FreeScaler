@@ -66,11 +66,17 @@ func importedNewFile(path:String) {
                 appdelegate.tb_clear.isEnabled = true
                 // hide drop label
                 appdelegate.droplabelview.isHidden = true
-                // hide share btn
+                // hide btns
                 appdelegate.saveBtn.isEnabled = false
                 appdelegate.tb_save.isEnabled = false
                 appdelegate.tb_stop.isEnabled = false
                 appdelegate.stopBtn.isEnabled = false
+                appdelegate.popupscale.isEnabled = true
+                appdelegate.popupmodel.isEnabled = true
+                appdelegate.tb_popupscale.isEnabled = true
+                appdelegate.tb_popupmodel.isEnabled = true
+                appdelegate.tb_tta.isEnabled = true
+                appdelegate.ttaBtn.isEnabled = true
                 // input image size
                 appdelegate.originalsize = image.size
                 // input image path
@@ -159,8 +165,19 @@ extension AppDelegate {
             self.tb_clear.isEnabled = false
             self.tb_save.isEnabled = false
             self.tb_import.isEnabled = false
+            
+            self.popupscale.isEnabled = false
+            self.popupmodel.isEnabled = false
+            self.tb_popupscale.isEnabled = false
+            self.tb_popupmodel.isEnabled = false
+            self.tb_tta.isEnabled = false
+            self.ttaBtn.isEnabled = false
+            
             self.tb_stop.isEnabled = true
             self.stopBtn.isEnabled = true
+            
+            self.left_drop.isHidden = true
+            self.right_drop.isHidden = true
             // progress view
             self.progress.doubleValue = 0
             self.progress.isHidden = true
@@ -242,6 +259,14 @@ extension AppDelegate {
         self.tb_clear.isEnabled = true
         self.tb_stop.isEnabled = false
         self.stopBtn.isEnabled = false
+        self.left_drop.isHidden = false
+        self.right_drop.isHidden = false
+        self.popupscale.isEnabled = true
+        self.popupmodel.isEnabled = true
+        self.tb_popupscale.isEnabled = true
+        self.tb_popupmodel.isEnabled = true
+        self.tb_tta.isEnabled = true
+        self.ttaBtn.isEnabled = true
     }
     
     
@@ -266,7 +291,15 @@ extension AppDelegate {
             self.tb_clear.isEnabled = true
             self.tb_stop.isEnabled = false
             self.stopBtn.isEnabled = false
+            self.popupscale.isEnabled = true
+            self.popupmodel.isEnabled = true
+            self.tb_popupscale.isEnabled = true
+            self.tb_popupmodel.isEnabled = true
+            self.tb_tta.isEnabled = true
+            self.ttaBtn.isEnabled = true
             self.previewup.image = image
+            self.left_drop.isHidden = false
+            self.right_drop.isHidden = false
             // hide progress view
             self.progress.isHidden = true
             self.iprogress.stopAnimation(nil)
@@ -307,8 +340,12 @@ extension AppDelegate {
         self.tb_popupmodel.isEnabled = true
         self.tb_stop.isEnabled = false
         self.stopBtn.isEnabled = false
+        self.tb_tta.isEnabled = true
+        self.ttaBtn.isEnabled = true
         self.droplabelview.isHidden = false
         self.preview.image = nil
+        self.left_drop.isHidden = false
+        self.right_drop.isHidden = false
         // batch view
         if let batch = viewCtrl["batch"] as? FSBatchViewController {
             batch.images = [FSImage]()

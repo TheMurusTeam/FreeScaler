@@ -140,10 +140,10 @@
 				3FC37D6828F4B073001CF0B7 /* Upscaler.swift */,
 				3FC37D6A28F4B802001CF0B7 /* Dropview.swift */,
 				3FA9884228F73419006A968A /* Preferences.swift */,
+				3F81151A28FB0EA300C03DF9 /* ServiceProvider.swift */,
 				3FC37D5628F4AFFF001CF0B7 /* Assets.xcassets */,
 				3FC37D5828F4AFFF001CF0B7 /* MainMenu.xib */,
 				3FC37D5B28F4AFFF001CF0B7 /* FreeScaler.entitlements */,
-				3F81151A28FB0EA300C03DF9 /* ServiceProvider.swift */,
 			);
 			path = FreeScaler;
 			sourceTree = "<group>";
@@ -389,7 +389,7 @@
 				CODE_SIGN_ENTITLEMENTS = FreeScaler/FreeScaler.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 42;
+				CURRENT_PROJECT_VERSION = 44;
 				DEVELOPMENT_TEAM = RNLG254GCK;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -420,7 +420,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "3rd Party Mac Developer Application";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 42;
+				CURRENT_PROJECT_VERSION = 44;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = RNLG254GCK;
 				ENABLE_HARDENED_RUNTIME = YES;

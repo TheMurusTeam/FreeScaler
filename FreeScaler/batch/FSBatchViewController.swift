@@ -137,7 +137,7 @@ class FSBatchViewController: NSViewController,NSSharingServicePickerDelegate {
                         let alert = NSAlert()
                         alert.messageText = "No images to import"
                         alert.runModal()
-                        
+                        (NSApplication.shared.delegate as? AppDelegate)?.mainTabView.selectTabViewItem(at: 0)
                     }
                 }
                 self.hideProgressView()
@@ -230,6 +230,8 @@ class FSBatchViewController: NSViewController,NSSharingServicePickerDelegate {
             appdelegate.popupmodel.isEnabled = false
             appdelegate.tb_popupscale.isEnabled = false
             appdelegate.tb_popupmodel.isEnabled = false
+            appdelegate.tb_tta.isEnabled = false
+            appdelegate.ttaBtn.isEnabled = false
             appdelegate.tb_stop.isEnabled = true
             appdelegate.stopBtn.isEnabled = true
         }
@@ -418,6 +420,8 @@ class FSBatchViewController: NSViewController,NSSharingServicePickerDelegate {
             appdelegate.popupmodel.isEnabled = true
             appdelegate.tb_popupscale.isEnabled = true
             appdelegate.tb_popupmodel.isEnabled = true
+            appdelegate.tb_tta.isEnabled = true
+            appdelegate.ttaBtn.isEnabled = true
             appdelegate.tb_stop.isEnabled = false
             appdelegate.stopBtn.isEnabled = false
         }

@@ -103,10 +103,13 @@ class AppDelegate: NSObject, NSApplicationDelegate,
     @IBOutlet weak var popupmodel: NSPopUpButton!
     @IBOutlet weak var popupscale: NSPopUpButton!
     @IBOutlet weak var ttaBtn: NSButton!
+    @IBOutlet weak var tb_tta: NSToolbarItem!
     @IBOutlet weak var stopBtn: NSButton!
     @IBOutlet weak var tb_stop: NSToolbarItem!
     
     @IBOutlet weak var view_batch: NSView!
+    @IBOutlet weak var left_drop: DropView!
+    @IBOutlet weak var right_drop: DropView!
     
     
     

@@ -25,6 +25,7 @@
                 <outlet property="droplabelview" destination="uP2-aA-Lgb" id="3Un-LX-Nef"/>
                 <outlet property="importBtn" destination="4Aj-Ll-Rzz" id="0Uk-Oy-Get"/>
                 <outlet property="iprogress" destination="mJL-f6-Kor" id="mOa-qO-FWP"/>
+                <outlet property="left_drop" destination="s7v-pV-B2G" id="vl8-w9-LqO"/>
                 <outlet property="leftview" destination="8Lo-qr-uVC" id="QPE-Y3-eQy"/>
                 <outlet property="mainTabView" destination="FoJ-Gc-YYU" id="6zm-iJ-tbE"/>
                 <outlet property="popoverTxt" destination="r8G-7W-3rU" id="UfJ-DJ-FTQ"/>
@@ -38,6 +39,7 @@
                 <outlet property="progress" destination="YU1-0f-UlU" id="hDk-9u-BM7"/>
                 <outlet property="progressLabel" destination="sbN-cT-5YB" id="ZbR-KO-tbv"/>
                 <outlet property="progrview" destination="Obw-OI-HE8" id="4kP-du-6Lb"/>
+                <outlet property="right_drop" destination="CoZ-jw-tb5" id="7au-PK-wET"/>
                 <outlet property="rightview" destination="yu0-dn-BZT" id="ELa-EA-Kez"/>
                 <outlet property="saveBtn" destination="MIx-sb-FVO" id="lkv-HN-GNT"/>
                 <outlet property="splitview" destination="ylw-6N-FWe" id="JOF-yV-VcO"/>
@@ -48,6 +50,7 @@
                 <outlet property="tb_popupscale" destination="rVO-rb-2Y1" id="dOg-Vu-94Q"/>
                 <outlet property="tb_save" destination="SgH-1i-UN2" id="slU-IT-9Es"/>
                 <outlet property="tb_stop" destination="ghy-d9-Ebn" id="z3U-1n-GE2"/>
+                <outlet property="tb_tta" destination="489-8r-7Rq" id="Rfk-gp-if8"/>
                 <outlet property="tb_upscale" destination="vbd-jO-bpD" id="bJD-fa-kip"/>
                 <outlet property="tipsSuppressionBtn" destination="Mf4-e4-naM" id="gMd-I9-xzR"/>
                 <outlet property="ttaBtn" destination="52Q-cT-REA" id="03D-6N-abQ"/>
@@ -365,7 +368,7 @@
                             </tabViewItem>
                             <tabViewItem label="View" identifier="" id="Z2I-Z3-1h0" userLabel="batch">
                                 <view key="view" id="nr1-at-c4O">
-                                    <rect key="frame" x="0.0" y="0.0" width="780" height="443"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="803" height="443"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
                             </tabViewItem>
