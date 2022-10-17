@@ -218,7 +218,7 @@
                         <font key="font" metaFont="system"/>
                         <tabViewItems>
                             <tabViewItem label="Tab" identifier="" id="8Fl-Nq-Hh8" userLabel="single image">
-                                <view key="view" id="czo-Ap-xYr">
+                                <view key="view" id="czo-Ap-xYr" userLabel="mainview">
                                     <rect key="frame" x="0.0" y="0.0" width="803" height="443"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>

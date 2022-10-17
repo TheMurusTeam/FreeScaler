@@ -8,11 +8,8 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="FSPreviewWindowController" customModule="FreeScaler" customModuleProvider="target">
             <connections>
-                <outlet property="img_left" destination="IcL-DF-X1p" id="T7w-Yf-qGM"/>
-                <outlet property="img_right" destination="fUv-7f-70e" id="K6X-hu-xVe"/>
-                <outlet property="left" destination="qKB-qB-1Yb" id="Fe0-Lm-JSj"/>
-                <outlet property="right" destination="zFy-72-yMN" id="HiT-Fg-9rs"/>
-                <outlet property="splitview" destination="Gal-hd-EtM" id="BH1-CE-yn3"/>
+                <outlet property="img_left" destination="Vg1-G9-LGs" id="0BB-z4-aoP"/>
+                <outlet property="img_right" destination="uvt-dP-vDL" id="cIE-LL-vQ9"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -21,64 +18,83 @@
         <window title="Preview" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="previewwin" animationBehavior="default" id="F0z-JX-Cv5">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="646" y="526" width="548" height="399"/>
+            <rect key="contentRect" x="646" y="526" width="675" height="429"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1512" height="944"/>
             <value key="minSize" type="size" width="548" height="399"/>
+            <value key="maxSize" type="size" width="1440" height="900"/>
             <view key="contentView" id="se5-gp-TjO">
-                <rect key="frame" x="0.0" y="0.0" width="548" height="399"/>
+                <rect key="frame" x="0.0" y="0.0" width="675" height="429"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <splitView arrangesAllSubviews="NO" dividerStyle="paneSplitter" vertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gal-hd-EtM">
-                        <rect key="frame" x="0.0" y="0.0" width="548" height="399"/>
-                        <subviews>
-                            <customView fixedFrame="YES" id="qKB-qB-1Yb" userLabel="left">
-                                <rect key="frame" x="0.0" y="0.0" width="271" height="399"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <subviews>
-                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IcL-DF-X1p">
-                                        <rect key="frame" x="0.0" y="0.0" width="548" height="399"/>
-                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="O9G-VF-8LG"/>
-                                    </imageView>
-                                </subviews>
-                            </customView>
-                            <customView fixedFrame="YES" id="zFy-72-yMN" userLabel="right">
-                                <rect key="frame" x="281" y="0.0" width="267" height="399"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <subviews>
-                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fUv-7f-70e">
-                                        <rect key="frame" x="-281" y="0.0" width="548" height="399"/>
-                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="Qv4-id-ojb"/>
-                                    </imageView>
-                                </subviews>
-                            </customView>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="IcL-DF-X1p" firstAttribute="leading" secondItem="Gal-hd-EtM" secondAttribute="leading" id="02E-yg-Zd0"/>
-                            <constraint firstAttribute="bottom" secondItem="fUv-7f-70e" secondAttribute="bottom" id="EOo-1j-UT7"/>
-                            <constraint firstAttribute="trailing" secondItem="IcL-DF-X1p" secondAttribute="trailing" id="LfA-u9-HFc"/>
-                            <constraint firstItem="fUv-7f-70e" firstAttribute="top" secondItem="Gal-hd-EtM" secondAttribute="top" id="StS-DQ-fX0"/>
-                            <constraint firstAttribute="bottom" secondItem="IcL-DF-X1p" secondAttribute="bottom" id="f7b-PQ-ZOT"/>
-                            <constraint firstAttribute="trailing" secondItem="fUv-7f-70e" secondAttribute="trailing" id="hHI-ed-aje"/>
-                            <constraint firstItem="IcL-DF-X1p" firstAttribute="top" secondItem="Gal-hd-EtM" secondAttribute="top" id="k3p-7o-6rc"/>
-                            <constraint firstItem="fUv-7f-70e" firstAttribute="leading" secondItem="Gal-hd-EtM" secondAttribute="leading" id="zGM-RU-cL7"/>
-                        </constraints>
-                        <holdingPriorities>
-                            <real value="250"/>
-                            <real value="250"/>
-                        </holdingPriorities>
-                    </splitView>
+                    <tabView drawsBackground="NO" type="noTabsNoBorder" translatesAutoresizingMaskIntoConstraints="NO" id="McP-pW-KJH" userLabel="tab view">
+                        <rect key="frame" x="0.0" y="0.0" width="675" height="429"/>
+                        <font key="font" metaFont="system"/>
+                        <tabViewItems>
+                            <tabViewItem label="Tab" identifier="" id="FLI-WD-uJF" userLabel="single image">
+                                <view key="view" id="gzO-pE-ph1" userLabel="mainview">
+                                    <rect key="frame" x="0.0" y="0.0" width="675" height="429"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <splitView arrangesAllSubviews="NO" dividerStyle="paneSplitter" vertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fit-1Y-3kw">
+                                            <rect key="frame" x="0.0" y="-5" width="675" height="434"/>
+                                            <subviews>
+                                                <customView fixedFrame="YES" id="nMg-MB-7J1" userLabel="sinistra">
+                                                    <rect key="frame" x="0.0" y="0.0" width="330" height="434"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="75" verticalCompressionResistancePriority="75" translatesAutoresizingMaskIntoConstraints="NO" id="Vg1-G9-LGs">
+                                                            <rect key="frame" x="0.0" y="5" width="674" height="429"/>
+                                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="yf9-Yp-iH6"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                </customView>
+                                                <customView fixedFrame="YES" id="nAW-gm-C55" userLabel="destra">
+                                                    <rect key="frame" x="340" y="0.0" width="335" height="434"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="75" verticalCompressionResistancePriority="75" translatesAutoresizingMaskIntoConstraints="NO" id="uvt-dP-vDL">
+                                                            <rect key="frame" x="-340" y="5" width="674" height="429"/>
+                                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="Yxf-2H-Sj1"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                </customView>
+                                            </subviews>
+                                            <holdingPriorities>
+                                                <real value="250"/>
+                                                <real value="250"/>
+                                            </holdingPriorities>
+                                        </splitView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Vg1-G9-LGs" firstAttribute="leading" secondItem="gzO-pE-ph1" secondAttribute="leading" id="46Q-BP-uhj"/>
+                                        <constraint firstItem="uvt-dP-vDL" firstAttribute="top" secondItem="gzO-pE-ph1" secondAttribute="top" id="As7-q6-g62"/>
+                                        <constraint firstItem="uvt-dP-vDL" firstAttribute="leading" secondItem="gzO-pE-ph1" secondAttribute="leading" id="B88-BT-Lxw"/>
+                                        <constraint firstAttribute="bottom" secondItem="Vg1-G9-LGs" secondAttribute="bottom" id="Knc-i2-Jcg"/>
+                                        <constraint firstItem="fit-1Y-3kw" firstAttribute="top" secondItem="gzO-pE-ph1" secondAttribute="top" id="dfB-F9-txX"/>
+                                        <constraint firstItem="fit-1Y-3kw" firstAttribute="leading" secondItem="gzO-pE-ph1" secondAttribute="leading" id="l3H-yc-14V"/>
+                                        <constraint firstAttribute="bottom" secondItem="uvt-dP-vDL" secondAttribute="bottom" id="rwF-EU-cM1"/>
+                                        <constraint firstItem="Vg1-G9-LGs" firstAttribute="top" secondItem="gzO-pE-ph1" secondAttribute="top" id="uAA-mR-Jpp"/>
+                                        <constraint firstAttribute="trailing" secondItem="uvt-dP-vDL" secondAttribute="trailing" constant="1" id="vSu-Z8-bbA"/>
+                                        <constraint firstAttribute="trailing" secondItem="fit-1Y-3kw" secondAttribute="trailing" id="vgf-PV-7Td"/>
+                                        <constraint firstAttribute="bottom" secondItem="fit-1Y-3kw" secondAttribute="bottom" constant="-5" id="vvn-aO-pOb"/>
+                                        <constraint firstAttribute="trailing" secondItem="Vg1-G9-LGs" secondAttribute="trailing" constant="1" id="xtD-mn-c7d"/>
+                                    </constraints>
+                                </view>
+                            </tabViewItem>
+                        </tabViewItems>
+                    </tabView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Gal-hd-EtM" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" id="9f4-tN-qbA"/>
-                    <constraint firstAttribute="trailing" secondItem="Gal-hd-EtM" secondAttribute="trailing" id="U12-u4-uBn"/>
-                    <constraint firstItem="Gal-hd-EtM" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" id="ios-Tr-rOO"/>
-                    <constraint firstAttribute="bottom" secondItem="Gal-hd-EtM" secondAttribute="bottom" id="kWe-JX-rb7"/>
+                    <constraint firstAttribute="trailing" secondItem="McP-pW-KJH" secondAttribute="trailing" id="SBc-lY-cCU"/>
+                    <constraint firstAttribute="bottom" secondItem="McP-pW-KJH" secondAttribute="bottom" id="XFE-4A-b2u"/>
+                    <constraint firstItem="McP-pW-KJH" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" id="ZYB-nK-DcQ"/>
+                    <constraint firstItem="McP-pW-KJH" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" id="efE-XF-Dzn"/>
                 </constraints>
             </view>
             <connections>
                 <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
             </connections>
-            <point key="canvasLocation" x="91" y="188.5"/>
+            <point key="canvasLocation" x="154.5" y="203.5"/>
         </window>
     </objects>
 </document>
