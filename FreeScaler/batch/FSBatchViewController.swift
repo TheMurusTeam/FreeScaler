@@ -18,7 +18,14 @@ class FSImage : NSObject {
     @objc dynamic var sizeString: String
     @objc dynamic var isUpscaling: Bool
     @objc dynamic var upscaled: Bool
-    @objc dynamic var progr: Double
+    @objc dynamic var progrIsIndeterminate = false
+    @objc dynamic var progr: Double {
+        didSet {
+            if progr > 8500 {
+                self.progrIsIndeterminate = true
+            }
+        }
+    }
     var upscaledImage = NSImage()
     
     init(path: String, thumbnail:NSImage, originalSize:NSSize) {
@@ -31,6 +38,10 @@ class FSImage : NSObject {
     }
 }
 
+
+class FSProgressIndicator : NSProgressIndicator {
+    
+}
 
 
 

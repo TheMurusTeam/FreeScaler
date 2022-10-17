@@ -153,6 +153,8 @@
                                     <rect key="frame" x="13" y="13" width="32" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <connections>
+                                        <binding destination="5YJ-6P-U44" name="animate" keyPath="representedObject.isUpscaling" id="7pk-lm-gBi"/>
+                                        <binding destination="5YJ-6P-U44" name="isIndeterminate" keyPath="representedObject.progrIsIndeterminate" previousBinding="7pk-lm-gBi" id="4Al-NM-B3V"/>
                                         <binding destination="5YJ-6P-U44" name="hidden" keyPath="representedObject.isUpscaling" id="vMt-wM-PeH">
                                             <dictionary key="options">
                                                 <string key="NSValueTransformerName">NSNegateBoolean</string>
