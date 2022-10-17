@@ -21,7 +21,6 @@
             <rect key="contentRect" x="646" y="526" width="675" height="429"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1512" height="944"/>
             <value key="minSize" type="size" width="548" height="399"/>
-            <value key="maxSize" type="size" width="1440" height="900"/>
             <view key="contentView" id="se5-gp-TjO">
                 <rect key="frame" x="0.0" y="0.0" width="675" height="429"/>
                 <autoresizingMask key="autoresizingMask"/>
