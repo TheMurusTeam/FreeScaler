@@ -26,6 +26,7 @@ import Cocoa
 // info@murus.it
 
 
+
 // global stores
 var viewCtrl = [String:NSViewController]()
 var winCtrl = [String:NSWindowController]()
