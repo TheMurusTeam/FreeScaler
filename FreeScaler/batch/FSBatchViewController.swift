@@ -35,6 +35,7 @@ class FSImage : NSObject {
         self.isUpscaling = false
         self.upscaled = false
         self.progr = 0
+        self.progrIsIndeterminate = false
     }
 }
 

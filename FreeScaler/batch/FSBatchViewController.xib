@@ -30,7 +30,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="609" height="349"/>
                     <clipView key="contentView" id="ZTE-JX-uuP">
                         <rect key="frame" x="0.0" y="0.0" width="609" height="349"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <collectionView focusRingType="none" allowsEmptySelection="NO" id="BhY-oe-CIU">
                                 <rect key="frame" x="0.0" y="0.0" width="609" height="349"/>
@@ -153,14 +153,14 @@
                                     <rect key="frame" x="13" y="13" width="32" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <connections>
-                                        <binding destination="5YJ-6P-U44" name="animate" keyPath="representedObject.isUpscaling" id="7pk-lm-gBi"/>
-                                        <binding destination="5YJ-6P-U44" name="isIndeterminate" keyPath="representedObject.progrIsIndeterminate" previousBinding="7pk-lm-gBi" id="4Al-NM-B3V"/>
-                                        <binding destination="5YJ-6P-U44" name="hidden" keyPath="representedObject.isUpscaling" id="vMt-wM-PeH">
-                                            <dictionary key="options">
-                                                <string key="NSValueTransformerName">NSNegateBoolean</string>
-                                            </dictionary>
-                                        </binding>
                                         <binding destination="5YJ-6P-U44" name="value" keyPath="representedObject.progr" id="Rtf-aS-W5E"/>
+                                    </connections>
+                                </progressIndicator>
+                                <progressIndicator fixedFrame="YES" maxValue="100" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="haq-pL-3pI">
+                                    <rect key="frame" x="21" y="21" width="16" height="16"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <connections>
+                                        <binding destination="5YJ-6P-U44" name="animate" keyPath="representedObject.isUpscaling" id="0i1-ee-cBq"/>
                                     </connections>
                                 </progressIndicator>
                             </subviews>
@@ -235,12 +235,12 @@
                                     <symbolConfiguration key="symbolConfiguration" weight="bold"/>
                                     <connections>
                                         <action selector="clickPreview:" target="-2" id="nZ2-gS-TeI"/>
+                                        <binding destination="5YJ-6P-U44" name="toolTip" keyPath="representedObject.path" id="nfT-Af-dmV"/>
                                         <binding destination="5YJ-6P-U44" name="hidden" keyPath="representedObject.upscaled" id="VbW-DT-EoB">
                                             <dictionary key="options">
                                                 <string key="NSValueTransformerName">NSNegateBoolean</string>
                                             </dictionary>
                                         </binding>
-                                        <binding destination="5YJ-6P-U44" name="toolTip" keyPath="representedObject.path" id="nfT-Af-dmV"/>
                                     </connections>
                                 </button>
                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lgt-9g-ABX">
@@ -254,12 +254,12 @@
                                     <symbolConfiguration key="symbolConfiguration" weight="bold"/>
                                     <connections>
                                         <action selector="clickShareImage:" target="-2" id="kOF-av-8E2"/>
+                                        <binding destination="5YJ-6P-U44" name="toolTip" keyPath="representedObject.path" id="Mmb-dz-CgU"/>
                                         <binding destination="5YJ-6P-U44" name="hidden" keyPath="representedObject.upscaled" id="yua-89-gQF">
                                             <dictionary key="options">
                                                 <string key="NSValueTransformerName">NSNegateBoolean</string>
                                             </dictionary>
                                         </binding>
-                                        <binding destination="5YJ-6P-U44" name="toolTip" keyPath="representedObject.path" id="Mmb-dz-CgU"/>
                                     </connections>
                                 </button>
                             </subviews>
