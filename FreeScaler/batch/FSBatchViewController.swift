@@ -18,11 +18,10 @@ class FSImage : NSObject {
     @objc dynamic var sizeString: String
     @objc dynamic var isUpscaling: Bool
     @objc dynamic var upscaled: Bool
-    @objc dynamic var progrIsIndeterminate = false
     @objc dynamic var progr: Double {
         didSet {
-            if progr > 8500 {
-                self.progrIsIndeterminate = true
+            if progr > 8800 {
+                progr = 10000
             }
         }
     }
@@ -35,7 +34,6 @@ class FSImage : NSObject {
         self.isUpscaling = false
         self.upscaled = false
         self.progr = 0
-        self.progrIsIndeterminate = false
     }
 }
 
